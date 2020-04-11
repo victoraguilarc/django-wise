@@ -1,0 +1,58 @@
+kind: pipeline
+name: default
+
+steps:
+- name: testing
+  image: python:3
+  commands:
+  - pip install -r ./requirements/testing.txt
+  - python manage.py test
+  environment:
+    DJANGO_SETTINGS_MODULE: config.settings.testing
+    POSTGRES_HOST:
+      from_secret: POSTGRES_HOST
+    POSTGRES_PORT:
+      from_secret: POSTGRES_PORT
+    POSTGRES_DB:
+      from_secret: POSTGRES_DB
+    POSTGRES_USER:
+      from_secret: POSTGRES_USER
+    POSTGRES_PASSWORD:
+      from_secret: POSTGRES_PASSWORD
+
+- name: publish
+  image: plugins/docker
+  settings:
+    repo: xiberty/sawi
+    dockerfile: ./compose/prod/django/Dockerfile
+    username:
+      from_secret: DOCKER_USERNAME
+    password:
+      from_secret: DOCKER_PASSWORD
+    tags:
+      - latest
+      - ${DRONE_COMMIT_SHA:0:8}
+
+- name: deploy
+  image: alpine
+  commands:
+    - echo "Hello World!"
+- name: notify
+  image: alpine
+  commands:
+    - echo "Hello World!"
+
+services:
+- name: postgres
+  image: postgres:10.5
+  environment:
+    POSTGRES_HOST:
+      from_secret: POSTGRES_HOST
+    POSTGRES_PORT:
+      from_secret: POSTGRES_PORT
+    POSTGRES_DB:
+      from_secret: POSTGRES_DB
+    POSTGRES_USER:
+      from_secret: POSTGRES_USER
+    POSTGRES_PASSWORD:
+      from_secret: POSTGRES_PASSWORD

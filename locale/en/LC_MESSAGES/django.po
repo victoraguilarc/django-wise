@@ -1,0 +1,745 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-11 18:53+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps/accounts/admin/user.py:26
+msgid "Email"
+msgstr ""
+
+#: apps/accounts/admin/user.py:52
+msgid "Personal Information"
+msgstr ""
+
+#: apps/accounts/admin/user.py:53
+msgid "Permissions"
+msgstr ""
+
+#: apps/accounts/api/v1/serializers/password.py:25
+#: apps/accounts/api/v1/serializers/password.py:45
+msgid "Current password"
+msgstr ""
+
+#: apps/accounts/api/v1/serializers/password.py:50
+#: apps/accounts/api/v1/serializers/password.py:75
+#: apps/accounts/api/v1/serializers/password.py:80
+#: web/templates/transactions/reset_password.html:53
+msgid "New Password"
+msgstr ""
+
+#: apps/accounts/forms.py:24 apps/accounts/forms.py:51
+#: apps/accounts/tests/unit/forms/test_reset_password.py:26
+#: apps/accounts/tests/unit/forms/test_user_creation.py:46
+msgid "Passwords Mismatch"
+msgstr ""
+
+#: apps/accounts/forms.py:39
+msgid "Put your password again"
+msgstr ""
+
+#: apps/accounts/models/choices.py:18
+msgid "Android"
+msgstr ""
+
+#: apps/accounts/models/choices.py:19
+msgid "iOS"
+msgstr ""
+
+#: apps/accounts/models/choices.py:20
+msgid "Web"
+msgstr ""
+
+#: apps/accounts/models/choices.py:33
+#: web/templates/transactions/emails/confirm_email/message.html:13
+#: web/templates/transactions/views/email_confirm.html:16
+msgid "Confirm e-mail"
+msgstr ""
+
+#: apps/accounts/models/choices.py:34
+#: web/templates/transactions/emails/reset_password/message.html:5
+#: web/templates/transactions/emails/reset_password/message.html:10
+#: web/templates/transactions/emails/reset_password/subject.txt:1
+#: web/templates/transactions/reset_password.html:5
+#: web/templates/transactions/reset_password.html:12
+#: web/templates/transactions/views/password_reset_done.html:17
+msgid "Reset Password"
+msgstr ""
+
+#: apps/accounts/models/pending_action.py:20 apps/accounts/models/user.py:111
+#: apps/accounts/tests/unit/models/test_user.py:38
+msgid "User"
+msgstr ""
+
+#: apps/accounts/models/pending_action.py:42
+msgid "extra"
+msgstr ""
+
+#: apps/accounts/models/pending_action.py:43
+msgid "This field changes according to the type of action"
+msgstr ""
+
+#: apps/accounts/models/pending_action.py:53
+#: apps/accounts/tests/unit/models/test_pending_action.py:20
+msgid "Pending Action"
+msgstr ""
+
+#: apps/accounts/models/pending_action.py:54
+#: apps/accounts/tests/unit/models/test_pending_action.py:24
+msgid "Pending Actions"
+msgstr ""
+
+#: apps/accounts/models/phone_device.py:16
+msgid "Device ID"
+msgstr ""
+
+#: apps/accounts/models/phone_device.py:29
+msgid "Model Name"
+msgstr ""
+
+#: apps/accounts/models/phone_device.py:35
+msgid "Is active"
+msgstr ""
+
+#: apps/accounts/models/phone_device.py:57
+msgid "Phone Device"
+msgstr ""
+
+#: apps/accounts/models/phone_device.py:58
+msgid "Phone Devices"
+msgstr ""
+
+#: apps/accounts/models/user.py:25
+msgid "username"
+msgstr ""
+
+#: apps/accounts/models/user.py:28
+msgid "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only."
+msgstr ""
+
+#: apps/accounts/models/user.py:33
+msgid ""
+"Enter a valid username. This value may contain only letters, numbers and @/./"
+"+/-/_ characters."
+msgstr ""
+
+#: apps/accounts/models/user.py:39
+msgid "A user with that username already exists."
+msgstr ""
+
+#: apps/accounts/models/user.py:45
+msgid "Email Address"
+msgstr ""
+
+#: apps/accounts/models/user.py:47
+msgid "A user with that email already exists."
+msgstr ""
+
+#: apps/accounts/models/user.py:54
+msgid "First Name"
+msgstr ""
+
+#: apps/accounts/models/user.py:60
+msgid "Last Name"
+msgstr ""
+
+#: apps/accounts/models/user.py:66
+msgid "Photo"
+msgstr ""
+
+#: apps/accounts/models/user.py:76
+msgid "Language"
+msgstr ""
+
+#: apps/accounts/models/user.py:112
+#: apps/accounts/tests/unit/models/test_user.py:42
+msgid "Users"
+msgstr ""
+
+#: apps/accounts/response_codes.py:13
+msgid "The google token is corrupted or expired"
+msgstr ""
+
+#: apps/accounts/response_codes.py:18
+msgid "The google token was issued for an invalid provider"
+msgstr ""
+
+#: apps/accounts/response_codes.py:23
+msgid "The facebook access token is corrupted or expired"
+msgstr ""
+
+#: apps/accounts/response_codes.py:28
+msgid "Invalid Refresh token"
+msgstr ""
+
+#: apps/accounts/response_codes.py:33
+msgid "This account is not authorized"
+msgstr ""
+
+#: apps/accounts/response_codes.py:38
+msgid "A valid operator account is required"
+msgstr ""
+
+#: apps/accounts/response_codes.py:43
+msgid "Email/username and password are required"
+msgstr ""
+
+#: apps/accounts/response_codes.py:48
+msgid "The account is not active"
+msgstr ""
+
+#: apps/accounts/response_codes.py:53
+msgid "Email must be verified"
+msgstr ""
+
+#: apps/accounts/response_codes.py:58
+msgid "User/email and password credentials are invalid"
+msgstr ""
+
+#: apps/accounts/response_codes.py:63
+msgid "This token is invalid or expired"
+msgstr ""
+
+#: apps/accounts/response_codes.py:68
+msgid "User not Found"
+msgstr ""
+
+#: apps/accounts/response_codes.py:73
+msgid "This email is already being used."
+msgstr ""
+
+#: apps/accounts/response_codes.py:78
+msgid "The username is already being used."
+msgstr ""
+
+#: apps/accounts/response_codes.py:83
+msgid "The authentication process failed, try again."
+msgstr ""
+
+#: apps/accounts/response_codes.py:88
+msgid "You do not have permission to perform this action."
+msgstr ""
+
+#: apps/accounts/response_codes.py:95
+msgid "This username is being used by another user"
+msgstr ""
+
+#: apps/accounts/response_codes.py:100
+msgid "Invalid password. Try again."
+msgstr ""
+
+#: apps/accounts/response_codes.py:105
+msgid "The Passwords mistmatch"
+msgstr ""
+
+#: apps/accounts/response_codes.py:110
+msgid ""
+"You can only set password for users who do not have it, this user already "
+"has one"
+msgstr ""
+
+#: apps/accounts/response_codes.py:115
+msgid "Device Not found"
+msgstr ""
+
+#: apps/accounts/response_codes.py:125
+msgid "An email to restore password was sent"
+msgstr ""
+
+#: apps/accounts/response_codes.py:130
+msgid "Email confirmation sent"
+msgstr ""
+
+#: apps/accounts/response_codes.py:136
+msgid "Your email has already been verified"
+msgstr ""
+
+#: apps/accounts/response_codes.py:143
+msgid "Password updated successfully"
+msgstr ""
+
+#: apps/accounts/response_codes.py:148
+msgid "Password has configured successfully"
+msgstr ""
+
+#: apps/accounts/response_codes.py:154
+msgid "You have successfully logged out."
+msgstr ""
+
+#: apps/accounts/response_codes.py:159
+msgid "Registered Device."
+msgstr ""
+
+#: apps/accounts/tests/unit/forms/test_reset_password.py:33
+#: apps/accounts/tests/unit/forms/test_reset_password.py:34
+msgid "This field is required."
+msgstr ""
+
+#: apps/contrib/api/exceptions.py:42
+msgid "Server error"
+msgstr ""
+
+#: apps/contrib/api/responses.py:14
+msgid "Successful operation!"
+msgstr ""
+
+#: apps/contrib/response_codes.py:9
+msgid "Ops Server is unavailable."
+msgstr ""
+
+#: apps/contrib/response_codes.py:14
+msgid "Ops Server invalid request."
+msgstr ""
+
+#: apps/contrib/response_codes.py:19
+msgid "Sync User error."
+msgstr ""
+
+#: apps/contrib/response_codes.py:23
+msgid "Sync Base error."
+msgstr ""
+
+#: apps/contrib/response_codes.py:28
+msgid "Core Server is unavailable."
+msgstr ""
+
+#: apps/contrib/response_codes.py:33
+msgid "Maps Server is unavailable."
+msgstr ""
+
+#: apps/contrib/response_codes.py:40
+msgid "This resource is forbidden for not SNS requests."
+msgstr ""
+
+#: apps/contrib/response_codes.py:45
+msgid "This method is not allowed for SNS requests"
+msgstr ""
+
+#: apps/contrib/response_codes.py:50
+msgid "Invalid SNS Signature."
+msgstr ""
+
+#: apps/contrib/response_codes.py:55
+msgid "SNS endpoint subscribe failed."
+msgstr ""
+
+#: apps/contrib/response_codes.py:60
+msgid "SNS endpoint subscribe confirmed."
+msgstr ""
+
+#: config/settings/components/common.py:127
+msgid "Spanish"
+msgstr ""
+
+#: config/settings/components/common.py:128
+msgid "English"
+msgstr ""
+
+#: web/templates/admin_sso/login.html:43
+msgid "Login with Google"
+msgstr ""
+
+#: web/templates/home.html:4 web/templates/home.html:22
+msgid "Start"
+msgstr ""
+
+#: web/templates/home.html:26
+msgid "Contact"
+msgstr ""
+
+#: web/templates/home.html:34
+msgid "Development API"
+msgstr ""
+
+#: web/templates/home.html:37
+msgid ""
+"\n"
+"                    This project contains <i>Web services</i><br>\n"
+"                    for <u><i><b>Operations</b></i></u> in Grow Mobility\n"
+"                "
+msgstr ""
+
+#: web/templates/home.html:44
+msgid "Documentation"
+msgstr ""
+
+#: web/templates/home.html:53 web/templates/layouts/partials/footer.html:6
+msgid "All rights reserved"
+msgstr ""
+
+#: web/templates/layouts/errors/400.html:24
+#: web/templates/transactions/confirm_email.html:5
+#: web/templates/transactions/emails/confirm_email/message.html:5
+msgid "Email Confirmation"
+msgstr ""
+
+#: web/templates/layouts/errors/400.html:28
+#: web/templates/transactions/confirm_email.html:9
+msgid "Successful confirmation!"
+msgstr ""
+
+#: web/templates/layouts/errors/400.html:33
+#: web/templates/transactions/confirm_email.html:14
+msgid ""
+"\n"
+"        This confirmation link <b>has expired or has already been used.</b>\n"
+"            Please try another link.\n"
+"        "
+msgstr ""
+
+#: web/templates/layouts/errors/403.html:3
+msgid "Access Denied"
+msgstr ""
+
+#: web/templates/layouts/errors/403.html:11
+msgid "ACCESS DENIED"
+msgstr ""
+
+#: web/templates/layouts/errors/403.html:19
+#: web/templates/layouts/errors/404.html:18
+#: web/templates/layouts/errors/500.html:18
+#: web/templates/transactions/views/email_confirm.html:50
+msgid "Back to Start"
+msgstr ""
+
+#: web/templates/layouts/errors/404.html:3
+msgid "Resource not found"
+msgstr ""
+
+#: web/templates/layouts/errors/404.html:11
+msgid "RESOURCE NOT FOUND"
+msgstr ""
+
+#: web/templates/layouts/errors/500.html:3
+msgid "Server Error"
+msgstr ""
+
+#: web/templates/layouts/errors/500.html:11
+msgid "SERVER ERROR"
+msgstr ""
+
+#: web/templates/layouts/partials/footer.html:14
+msgid "Terms of use"
+msgstr ""
+
+#: web/templates/transactions/emails/confirm_email/message.html:11
+msgid "Hello"
+msgstr ""
+
+#: web/templates/transactions/emails/confirm_email/message.html:18
+msgid "Click on the following button and confirm your email to start enjoying"
+msgstr ""
+
+#: web/templates/transactions/emails/confirm_email/message.html:23
+#: web/templates/transactions/emails/reset_password/message.html:23
+msgid "If you did not request this simply ignore this email or"
+msgstr ""
+
+#: web/templates/transactions/emails/confirm_email/message.html:25
+#: web/templates/transactions/emails/reset_password/message.html:25
+msgid "report it"
+msgstr ""
+
+#: web/templates/transactions/emails/confirm_email/message.html:30
+msgid "CONFIRM MY EMAIL"
+msgstr ""
+
+#: web/templates/transactions/emails/confirm_email/message.txt:3
+#, python-format
+msgid ""
+"\n"
+"Confirm your email\n"
+"\n"
+"\n"
+"Click on the following link and confirm your email to start\n"
+"enjoy %(project_name)s\n"
+"\n"
+"\n"
+"     %(action_url)s\n"
+"\n"
+"\n"
+"If you did not request this simply ignore this email or report it to "
+"%(project_support_email)s\n"
+"\n"
+"---\n"
+"The team %(project_name)s\n"
+msgstr ""
+
+#: web/templates/transactions/emails/confirm_email/subject.txt:1
+msgid "Email confirmation"
+msgstr ""
+
+#: web/templates/transactions/emails/reset_password/message.html:14
+#, python-format
+msgid ""
+"\n"
+"            We sent you this email because you requested to restore the "
+"password for this account in\n"
+"            <i> %(project_name)s </i>. <br>\n"
+"            To restore your password you must click on the button below.\n"
+"        "
+msgstr ""
+
+#: web/templates/transactions/emails/reset_password/message.html:30
+msgid "RESET MY PASSWORD"
+msgstr ""
+
+#: web/templates/transactions/emails/reset_password/message.txt:3
+#, python-format
+msgid ""
+"\n"
+"Reset Password\n"
+"\n"
+"\n"
+"We sent you this email because you requested to reset your password\n"
+"of this account in %(project_name)s, to continue simply do\n"
+"Click on the following link.\n"
+"\n"
+"\n"
+"     %(action_url)s\n"
+"\n"
+"\n"
+"If you did not request this simply ignore this email or\n"
+"report it to %(project_support_email)s\n"
+"\n"
+"---\n"
+"The team %(project_name)s\n"
+msgstr ""
+
+#: web/templates/transactions/reset_password.html:14
+msgid "Account Inactive!"
+msgstr ""
+
+#: web/templates/transactions/reset_password.html:17
+msgid "Incorrect Link!"
+msgstr ""
+
+#: web/templates/transactions/reset_password.html:27
+msgid "Enter and confirm your new password."
+msgstr ""
+
+#: web/templates/transactions/reset_password.html:85
+#: web/templates/transactions/views/password_reset_confirm.html:65
+msgid "Confirm Password"
+msgstr ""
+
+#: web/templates/transactions/reset_password.html:105
+#: web/templates/transactions/views/password_reset_confirm.html:4
+#: web/templates/transactions/views/password_reset_confirm.html:17
+#: web/templates/transactions/views/password_reset_confirm.html:79
+msgid "Change Password"
+msgstr ""
+
+#: web/templates/transactions/reset_password.html:111
+#, python-format
+msgid ""
+"\n"
+"                    This account is inactive, please contact\n"
+"                    <a href=\"mailto:%(project_support_email)s\"><b> "
+"%(project_support_email)s</b></a>\n"
+"                    for more details.\n"
+"                "
+msgstr ""
+
+#: web/templates/transactions/reset_password.html:121
+msgid ""
+"\n"
+"            This link to restore password <b>has expired or has already been "
+"used.</b>\n"
+"            Please try another link.\n"
+"            "
+msgstr ""
+
+#: web/templates/transactions/reset_password_done.html:5
+msgid "Restore Changed"
+msgstr ""
+
+#: web/templates/transactions/reset_password_done.html:10
+msgid "Password Changed!"
+msgstr ""
+
+#: web/templates/transactions/reset_password_done.html:18
+msgid ""
+"\n"
+"            Your account password <b>has been changed</b> successfully.\n"
+"            "
+msgstr ""
+
+#: web/templates/transactions/reset_password_done.html:25
+msgid "Return"
+msgstr ""
+
+#: web/templates/transactions/reset_password_done.html:31
+#, python-format
+msgid ""
+"\n"
+"                This account is deactivated, please contact\n"
+"                <a href=\"mailto:%(project_support_email)s\"><b>"
+"%(project_support_email)s</b></a>\n"
+"                for more details.\n"
+"            "
+msgstr ""
+
+#: web/templates/transactions/views/account_inactive.html:4
+#: web/templates/transactions/views/email_confirm.html:4
+#: web/templates/transactions/views/email_verification_sent.html:4
+#: web/templates/transactions/views/email_verification_sent.html:16
+#: web/templates/transactions/views/password_reset_from_key_done.html:4
+msgid "Confirmation Sent"
+msgstr ""
+
+#: web/templates/transactions/views/account_inactive.html:16
+msgid "Account deactivated"
+msgstr ""
+
+#: web/templates/transactions/views/account_inactive.html:21
+#, python-format
+msgid ""
+"\n"
+"                        This account is deactivated, please contact\n"
+"                        <a href=\"mailto:%(project_support_email)s\"><b>"
+"%(project_support_email)s</b></a>\n"
+"                        for more details.\n"
+"                    "
+msgstr ""
+
+#: web/templates/transactions/views/account_inactive.html:31
+#: web/templates/transactions/views/email_verification_sent.html:32
+#: web/templates/transactions/views/password_reset_confirm.html:35
+#: web/templates/transactions/views/password_reset_done.html:42
+#: web/templates/transactions/views/password_reset_from_key_done.html:31
+msgid "Go to start"
+msgstr ""
+
+#: web/templates/transactions/views/account_inactive.html:38
+#: web/templates/transactions/views/email_confirm.html:58
+#: web/templates/transactions/views/email_verification_sent.html:39
+#: web/templates/transactions/views/password_reset_confirm.html:88
+#: web/templates/transactions/views/password_reset_done.html:49
+#: web/templates/transactions/views/password_reset_from_key_done.html:39
+msgid "You can too: "
+msgstr ""
+
+#: web/templates/transactions/views/account_inactive.html:40
+#: web/templates/transactions/views/email_confirm.html:60
+#: web/templates/transactions/views/email_verification_sent.html:41
+#: web/templates/transactions/views/password_reset_confirm.html:90
+#: web/templates/transactions/views/password_reset_done.html:51
+#: web/templates/transactions/views/password_reset_from_key_done.html:24
+msgid "Log in"
+msgstr ""
+
+#: web/templates/transactions/views/account_inactive.html:44
+#: web/templates/transactions/views/email_confirm.html:64
+#: web/templates/transactions/views/email_verification_sent.html:45
+#: web/templates/transactions/views/password_reset_confirm.html:94
+#: web/templates/transactions/views/password_reset_done.html:55
+#: web/templates/transactions/views/password_reset_from_key_done.html:41
+msgid "Create an account"
+msgstr ""
+
+#: web/templates/transactions/views/email_confirm.html:27
+#, python-format
+msgid ""
+"\n"
+"                                Please confirm that <a href=\"mailto:"
+"%(email)s\"><b> %(email)s </b></a>\n"
+"                                is an email for the user <span class = "
+"\"label label-primary\"> %(user_display)s</span>\n"
+"                            "
+msgstr ""
+
+#: web/templates/transactions/views/email_confirm.html:37
+msgid "Confirm"
+msgstr ""
+
+#: web/templates/transactions/views/email_confirm.html:42
+msgid ""
+"\n"
+"                            This confirmation link <b>has expired or is "
+"invalid.</b><br>\n"
+"                            Please try again with a valid link.\n"
+"                        "
+msgstr ""
+
+#: web/templates/transactions/views/email_verification_sent.html:21
+#, python-format
+msgid ""
+"\n"
+"                        We have sent you a <b>Confirmation Mail</b> with a "
+"link\n"
+"                        where you can finish the registration process. Write "
+"to\n"
+"                        <a href=\"mailto:%(project_support_email)s\"><b>"
+"%(project_support_email)s</b></a> in\n"
+"                        In case you haven't received it.\n"
+"                    "
+msgstr ""
+
+#: web/templates/transactions/views/password_reset_confirm.html:4
+#: web/templates/transactions/views/password_reset_confirm.html:17
+msgid "Incorrect Link"
+msgstr ""
+
+#: web/templates/transactions/views/password_reset_confirm.html:26
+#, python-format
+msgid ""
+"\n"
+"                            The restore link is <b> invalid </b> possibly "
+"because it has already been used.\n"
+"                            Please try <a href=\"%(passwd_reset_url)s"
+"\"><b>Restore your password</b></a> again.\n"
+"                        "
+msgstr ""
+
+#: web/templates/transactions/views/password_reset_confirm.html:51
+msgid "Password"
+msgstr ""
+
+#: web/templates/transactions/views/password_reset_done.html:4
+msgid "Password reset"
+msgstr ""
+
+#: web/templates/transactions/views/password_reset_done.html:25
+msgid "You are logged in as"
+msgstr ""
+
+#: web/templates/transactions/views/password_reset_done.html:31
+#, python-format
+msgid ""
+"\n"
+"                        We have sent you a <b>Confirmation Mail</b> with a "
+"link\n"
+"                        where you can finish the process of restoring your "
+"password.\n"
+"                        Write us at <a href=\"mailto:"
+"%(project_support_email)s\"> <b>%(project_support_email)s</b> </a>\n"
+"                        in case you haven't received it.\n"
+"                    "
+msgstr ""
+
+#: web/templates/transactions/views/password_reset_from_key_done.html:16
+msgid "Password Changed"
+msgstr ""
+
+#: web/templates/transactions/views/password_reset_from_key_done.html:22
+msgid "Your password has been changed successfully, you can now"
+msgstr ""
+
+#: web/templates/transactions/views/password_reset_from_key_done.html:25
+msgid "with your new credentials."
+msgstr ""

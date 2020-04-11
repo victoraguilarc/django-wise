@@ -1,0 +1,50 @@
+version: '3.4'
+
+volumes:
+  postgres_data:
+
+services:
+  django: &django
+    build:
+      context: ""
+      dockerfile: ./Dockerfile
+      target: development
+    depends_on:
+      - postgres
+      - mailhog
+      - redis
+    env_file:
+      - .envs/dev/django
+      - .envs/dev/postgres
+    volumes:
+      - .:/app
+
+  celeryworker:
+    <<: *django
+    ports: []
+    command: /start-celeryworker
+
+  celerybeat:
+    <<: *django
+    ports: []
+    command: /start-celerybeat
+
+  flower:
+    <<: *django
+    ports:
+      - "5555:5555"
+    command: /start-flower
+
+  postgres:
+    env_file:
+      - .envs/dev/postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./tmp/db/backups:/backups
+    ports:
+      - "4400:5432"
+
+  mailhog:
+    image: mailhog/mailhog:v1.0.0
+    ports:
+      - "8025:8025"

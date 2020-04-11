@@ -1,0 +1,32 @@
+{% load i18n %}
+
+{% blocktrans %}
+Reset Password
+
+
+We sent you this email because you requested to reset your password
+of this account in {{project_name}}, to continue simply do
+Click on the following link.
+
+
+     {{action_url}}
+
+
+If you did not request this simply ignore this email or
+report it to {{project_support_email}}
+
+---
+The team {{project_name}}
+{% endblocktrans %}
+
+
+
+
+
+
+
+
+
+
+
+

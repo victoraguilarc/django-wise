@@ -1,0 +1,17 @@
+{% load static i18n %}
+
+<footer>
+    <div class="rights">
+        Copyright  © 2020 <a href="{{ project_owner_domain }}">{{ project_owner }}</a> -
+        {% trans 'All rights reserved' %}
+    </div>
+    <div class="info">
+        <a href="mailto:{{ project_support_email }}">{{ project_support_email }}</a>
+        <span class="separator">|</span>
+        <a href="tel:{{ project_support_phone }}">{{ project_support_phone }}</a>
+        <span class="separator">|</span>
+        <a href="{{ project_terms_url }}">
+            {% trans 'Terms of use' %}
+        </a>
+    </div>
+</footer>

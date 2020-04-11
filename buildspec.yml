@@ -1,0 +1,30 @@
+version: 0.2
+
+env:
+  variables:
+    DJANGO_ENV: 'testing'
+    POSTGRES_HOST: 'postgres'
+    POSTGRES_DB: 'postgres'
+    POSTGRES_USER: 'postgres'
+    POSTGRES_PASSWORD: 'postgres'
+    POSTGRES_PORT: 5432
+
+phases:
+  install:
+    commands:
+      # Assume role needed to access the proper resources on the production account (where the S3 bucket and lambda for the github bot live)
+      - ASSUME_ROLE_ARN="arn:aws:iam::852516393594:role/InvokeGithubLambda_Staging"
+      - TEMP_ROLE=`aws sts assume-role --role-arn $ASSUME_ROLE_ARN --role-session-name build_staging`
+      - export TEMP_ROLE
+      - export AWS_ACCESS_KEY_ID=$(echo "${TEMP_ROLE}" | jq -r '.Credentials.AccessKeyId')
+      - export AWS_SECRET_ACCESS_KEY=$(echo "${TEMP_ROLE}" | jq -r '.Credentials.SecretAccessKey')
+      - export AWS_SESSION_TOKEN=$(echo "${TEMP_ROLE}" | jq -r '.Credentials.SessionToken')
+  build:
+    commands:
+      - echo Building pre_build images ...
+      - docker-compose -f docker-compose.yml -f compose/docker-compose.build.yml up --build -d
+      - echo Linting Source Code ...
+      - docker-compose -f docker-compose.yml -f compose/docker-compose.build.yml run django flake8 .
+      - echo Testing Source Code ...
+      - docker-compose -f docker-compose.yml -f compose/docker-compose.build.yml run --rm django pytest
+

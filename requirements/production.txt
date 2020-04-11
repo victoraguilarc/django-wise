@@ -1,0 +1,18 @@
+# WSGI HANDLER
+# ------------------------------------------------
+gunicorn==20.0.4  # https://github.com/benoitc/gunicorn
+
+# STATIC AND MEDIA STORAGE
+# ------------------------------------------------
+django-s3-storage==0.13.0  # https://github.com/etianen/django-s3-storage
+python-dateutil==2.8.0  # Temporal Fix for storages
+
+# EMAIL
+# -------------------------------------------------------
+django-anymail[mailgun]==6.0  # https://github.com/anymail/django-anymail
+
+
+#
+# M O N I T O R I N G
+# -----------------------------------------
+newrelic==5.4.0.132  # https://pypi.org/project/newrelic/

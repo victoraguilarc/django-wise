@@ -1,0 +1,7 @@
+repos:
+-   repo: local
+    hooks:
+    -   id: make-lint
+        name: Linting the source code
+        entry: docker-compose -f compose-dev.yml run --rm django flake8 --format=html
+        language: system

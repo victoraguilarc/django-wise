@@ -1,0 +1,67 @@
+FROM python:3.7-alpine as image_base
+
+ENV PYTHONUNBUFFERED 1
+
+RUN apk update \
+  # psycopg2 dependencies
+  && apk add --virtual build-deps gcc python3-dev musl-dev \
+  && apk add postgresql-dev \
+  # Pillow dependencies
+  && apk add jpeg-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev \
+  # CFFI dependencies
+  && apk add libffi-dev py-cffi \
+  # Translations dependencies
+  && apk add gettext \
+  # https://docs.djangoproject.com/en/dev/ref/django-admin/#dbshell
+  && apk add postgresql-client \
+  && apk add linux-headers \
+  && apk add libmemcached-dev \
+  && apk add bash curl
+
+COPY ./requirements /requirements
+RUN pip install --no-cache-dir -r /requirements/common.txt
+
+COPY compose/post-build /post-build
+RUN sed -i 's/\r//' /post-build
+RUN chmod +x /post-build
+
+EXPOSE 8000
+
+# C E L E R Y
+
+COPY compose/celery/prod/start-celeryworker /start-celeryworker
+RUN sed -i 's/\r$//g' /start-celeryworker
+RUN chmod +x /start-celeryworker
+
+COPY compose/celery/prod/start-celerybeat /start-celerybeat
+RUN sed -i 's/\r$//g' /start-celerybeat
+RUN chmod +x /start-celerybeat
+
+COPY compose/celery/prod/start-flower /start-flower
+RUN sed -i 's/\r$//g' /start-flower
+RUN chmod +x /start-flower
+
+EXPOSE 5555
+
+WORKDIR /app
+
+#
+#  P R O D U C T I O N
+#
+FROM image_base as production
+
+RUN pip install --no-cache-dir -r /requirements/production.txt
+
+COPY compose/start-prod /start
+RUN sed -i 's/\r//' /start
+RUN chmod +x /start
+
+ENV NEW_RELIC_LOG_LEVEL info
+ENV NEW_RELIC_LOG stdout
+RUN curl -sSL https://github.com/segmentio/chamber/releases/download/v2.7.5/chamber-v2.7.5-linux-amd64 > chamber \
+    && chmod +x chamber
+
+COPY . /app
+
+HEALTHCHECK CMD curl -sSf http://localhost:8000/ || exit 1
+CMD /app/chamber exec ${NEW_RELIC_APP_NAME} -- newrelic-admin run-program gunicorn -c gunicorn.ini config.wsgi

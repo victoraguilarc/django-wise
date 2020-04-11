@@ -1,0 +1,44 @@
+{% extends "transactions/emails/base.html" %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Email Confirmation" %}
+{% endblock %}
+
+{% autoescape off %}
+    {% block email_title %}
+        {% if pending_action.user.recipient_name %}
+            {% trans "Hello" %} {{ pending_action.user.recipient_name }} 😊!
+        {% else %}
+            {% trans "Confirm e-mail" %}
+        {% endif %}
+    {% endblock %}
+
+    {% block email_description %}
+        {% trans 'Click on the following button and confirm your email to start enjoying' %}
+        <i>{{ project_name }}</i>
+    {% endblock %}
+
+    {% block email_description_last %}
+        {% trans 'If you did not request this simply ignore this email or' %}
+        <a href="mailto:{{ project_support_email }}">
+            {% trans 'report it' %}
+        </a>
+    {% endblock %}
+
+    {% block action_label %}
+        {% trans 'CONFIRM MY EMAIL' %}
+    {% endblock %}
+{% endautoescape %}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+{% extends "layouts/base.html" %}
+{% load static i18n %}
+
+{% block body_class %}text-center{% endblock %}
+
+{% block extra_styles %}
+    <link href="{% static 'assets/css/transactions.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body_content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+                <form class="transaction-form" action="." method="post" id="pending-action-form">
+                    <img class="mb-4 logo" src="{% static 'assets/img/logo_light.png' %}" alt="{{ project_name }}">
+                    <h3 class="title">
+                        {% block form_title %}{% endblock %}
+                    </h3>
+
+                    {% block form_content %}
+                    {% endblock %}
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    {% include "layouts/partials/footer.html" %}
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="{% static 'assets/js/scripts.js' %}"></script>
+{% endblock %}
+
+

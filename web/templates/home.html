@@ -1,0 +1,62 @@
+{% extends "layouts/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans 'Start' %}{% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'assets/css/home.css' %}">
+{% endblock %}
+
+{% block body_class %}text-center{% endblock %}
+
+{% block body_content %}
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <h3 class="masthead-brand" style="font-weight: 200">
+                    <i class="mdi mdi-rocket"></i>
+                    <i>Grow Ops</i>
+                </h3>
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link active" href="/">
+                        {% trans 'Start' %}
+                    </a>
+
+                    <a class="nav-link" href="mailto:{{ project_support_email }}">
+                        {% trans 'Contact' %}
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <main role="main" class="inner cover">
+            <h1 class="cover-heading mb-4">
+                {% trans 'Development API' %}
+            </h1>
+            <p class="lead mb-5">
+                {% blocktrans %}
+                    This project contains <i>Web services</i><br>
+                    for <u><i><b>Operations</b></i></u> in Grow Mobility
+                {% endblocktrans %}
+            </p>
+            <p class="lead">
+                <a href="{{ project_owner_domain }}/docs" class="btn btn-lg btn-secondary" target="_blank">
+                    {% trans 'Documentation' %}
+                </a>
+            </p>
+        </main>
+
+        <footer class="mastfoot mt-auto">
+            <div class="inner">
+                <p>
+                    Copyright © 2020 <a href="{{ project_owner_domain }}">{{ project_owner }}</a> -
+                    {% trans 'All rights reserved' %}
+                </p>
+            </div>
+        </footer>
+    </div>
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="{% static 'assets/js/scripts.js' %}"></script>
+{% endblock %}

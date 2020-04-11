@@ -1,0 +1,36 @@
+{% load static i18n %}
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="{{ project_description }}">
+        <meta name="author" content="{{ project_author }}">
+
+        {% include "layouts/partials/meta_tags.html" %}
+
+        <title>{% block title %}{% endblock %} | {{ project_name }}</title>
+
+        <link href="{% static 'vendors/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/material-design/material-components-web.css' %}" rel="stylesheet">
+
+        {% block extra_styles %}{% endblock %}
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+
+        {% block body_content %}{% endblock %}
+
+
+        {% if not DEBUG %}
+            {% include "layouts/partials/analytics.html" %}
+        {% endif %}
+
+        <script src="{% static 'vendors/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'vendors/bootstrap/js/bootstrap.js' %}"></script>
+        <script src="{% static 'vendors/material-design/material-components-web.js' %}"></script>
+
+        {% block extra_scripts %}{% endblock %}
+    </body>
+</html>

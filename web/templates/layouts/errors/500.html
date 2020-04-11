@@ -1,0 +1,20 @@
+{% extends "layouts/errors/base.html" %}
+{% load static i18n %}
+{% block title %}500 | {% trans 'Server Error' %}{% endblock %}
+
+
+{% block error_title %}
+    500
+{% endblock %}
+
+{% block error_description %}
+    <h3 class="text-light">{% trans 'SERVER ERROR' %}</h3>
+    <p class="description text-light mb-3">
+        Ha ocurrido un error en el servidor, <br> para más indormacióm, por favor <br>
+        contáctese con <a  class="text-secondary" href="mailto:support@xiberty.com"><b>support@xiberty.com</b>.</a>
+    </p>
+    <a href="/" class="btn btn-dark btn-lg">
+        <i class="fa fa-home"></i>&nbsp;&nbsp;&nbsp;
+        {% trans 'Back to Start' %}&nbsp;
+    </a>
+{% endblock %}

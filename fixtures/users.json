@@ -1,0 +1,20 @@
+[{
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+        "password": "bcrypt_sha256$$2b$12$BogGYAh3m4ihpvS5IRP03ODJBdpZb4Clnd7JsVKsbxE.zD9Z.AqC.",
+        "last_login": "2020-01-15T16:56:28.873Z",
+        "is_superuser": true,
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2020-01-15T16:56:15.257Z",
+        "username": "admin",
+        "email": "admin@xiberty.com",
+        "photo": "",
+        "first_name": "Super",
+        "last_name": "Admin",
+        "language": "es",
+        "groups": [],
+        "user_permissions": []
+    }
+}]

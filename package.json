@@ -1,0 +1,22 @@
+{
+    "name": "project",
+    "version": "1.0.0",
+    "author": "Victor Aguilar C.",
+    "license": "MIT",
+    "dependencies": {
+        "browser-sync": "^2.26.7",
+        "gulp": "^3.9.1",
+        "gulp-less": "^3.0.3",
+        "gulp-rigger": "^0.5.8",
+        "gulp-rimraf": "^0.2.0",
+        "gulp-sass": "^3.1.0",
+        "gulp-sourcemaps": "^1.5.2",
+        "gulp-watch": "^4.3.3",
+        "material-components-web": "^1.1.1"
+    },
+    "devDependencies": {
+        "gulp-clean-css": "^2.0.6",
+        "gulp-htmlmin": "^1.3.0",
+        "gulp-install": "^0.6.0"
+    }
+}

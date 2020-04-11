@@ -1,0 +1,11 @@
+[run]
+include = apps/*
+omit = *migrations*, *templates*, apps/contrib/views.py
+plugins =
+    django_coverage_plugin
+
+[html]
+directory = reports/coverage
+
+[json]
+output = coverage/coverage.json

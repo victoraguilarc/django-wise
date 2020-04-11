@@ -1,0 +1,8 @@
+version: '3.4'
+
+
+services:
+  django:
+    env_file:
+      - .envs/test/django
+      - .envs/dev/postgres

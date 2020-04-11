@@ -1,0 +1,90 @@
+
+wheel==0.34.2
+pip==20.0.2
+django==3.0.5
+
+#
+# C O N F I G U R A T I O N
+#
+django-environ==0.4.5  # https://github.com/joke2k/django-environ
+whitenoise==5.0.1  # https://github.com/evansd/whitenoise
+
+#
+# F O R M S
+#
+django-braces==1.14.0
+django-crispy-forms==1.9.0  # https://github.com/django-crispy-forms/django-crispy-forms
+
+#
+# M O D E L S
+#
+psycopg2==2.8.4 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
+django-model-utils==4.0.0  # https://github.com/jazzband/django-model-utils
+django-modeltranslation==0.14.4  # https://github.com/deschler/django-modeltranslation
+
+#
+# A S Y N C  T A S K S
+#
+celery==4.4.2  # pyup: < 5.0  # https://github.com/celery/celery
+django-celery-beat==2.0.0  # https://github.com/celery/django-celery-beat
+django-celery-results==1.2.1  # https://github.com/celery/django-celery-results
+flower==0.9.4  # https://github.com/mher/flower
+
+#
+# I M A G E S
+#
+Pillow==7.1.1  # https://github.com/python-pillow/Pillow
+
+#
+# C A C H I N G
+#
+redis==3.4.1  # https://github.com/antirez/redis
+django-redis==4.11.0  # https://github.com/niwinz/django-redis
+django-cache-memoize==0.1.6  # https://github.com/peterbe/django-cache-memoize
+
+#
+# A S S E T S   M A N A G E M E N T
+#
+rcssmin==1.0.6
+django-compressor==2.4  # https://github.com/django-compressor/django-compressor
+django-imagekit==4.0.2  # https://github.com/matthewwithanm/django-imagekit
+
+#
+# A D M I N
+#
+django-import-export==2.0.2  # https://github.com/django-import-export/django-import-export
+django-picklefield==2.1.1  # https://github.com/gintas/django-picklefield
+django-constance==2.6.0  # https://github.com/jazzband/django-constance
+django-admin-sso==3.0.0  # https://github.com/matthiask/django-admin-sso/find/master
+
+
+#
+# R E S T   A P I S
+#
+djangorestframework==3.11.0  # https://github.com/encode/django-rest-framework
+django-cors-headers==3.2.1  # https://github.com/ottoyiu/django-cors-headers
+django-http-referrer-policy==1.0.1  # https://github.com/ubernostrum/django-referrer-policy/
+django-feature-policy==3.2.0  # https://github.com/adamchainz/django-feature-policy
+django-filter==2.2.0  # https://github.com/carltongibson/django-filter
+pyfcm==1.4.7  # https://github.com/olucurious/pyfcm
+google-auth==1.13.1  # https://github.com/googleapis/google-auth-library-python
+CacheControl==0.12.6  # https://github.com/ionrock/cachecontrol
+djangorestframework_simplejwt==4.4.0  # https://github.com/davesque/django-rest-framework-simplejwt
+djangorestframework-api-key==1.4.1  # https://florimondmanca.github.io/djangorestframework-api-key/
+
+#
+# U T I L I T I E S
+#
+urllib3==1.25.8
+Werkzeug==1.0.1  # https://github.com/pallets/werkzeug
+python-slugify==4.0.0  # https://github.com/un33k/python-slugify
+bcrypt==3.1.7  # https://github.com/pyca/bcrypt
+django-split-settings==1.0  # https://github.com/sobolevn/django-split-settings
+django-health-check==3.12.1  # https://github.com/KristianOellegaard/django-health-check
+boto3==1.12.36  # https://github.com/boto/boto3
+oscrypto==1.2.0  # https://github.com/wbond/oscrypto
+
+#
+# T I M E Z O N E S
+#
+pytz==2019.3  # https://pythonhosted.org/pytz/

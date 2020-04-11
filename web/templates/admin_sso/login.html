@@ -1,0 +1,45 @@
+{% extends "admin/login.html" %}
+
+{% load i18n %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <style>
+    .google-login {
+      background: #cecece;
+      border-radius: 4px;
+      margin-top: 5px;
+      display: inline-block;
+      padding: 2px;
+      text-align: center;
+      width: 100%;
+    }
+    .google-login:hover {
+      cursor: pointer;
+    }
+    .google-login span.icon {
+      background: url('https://flixable.com/images/google.svg') white center center no-repeat;
+      display: block;
+      float: left;
+      height: 15px;
+      padding: 10px;
+      width: 18px;
+    }
+    .google-login span.text {
+      color: gray;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 35px;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+{{ block.super }}
+
+  <a class="google-login" href="{% url 'admin:admin_sso_assignment_start' %}">
+      <span class="icon"></span>
+      <span class="text">{% trans "Login with Google" %}</span>
+  </a>
+{% endblock content %}

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+python /app/manage.py migrate
+python /app/manage.py touch_superuser
+python /app/manage.py collectstatic  \
+  --no-input --verbosity 2 \
+  --traceback \
+  -i django_extensions \
+  -i '*.coffee' \
+  -i '*.rb' \
+  -i '*.scss' \
+  -i '*.less' \
+  -i '*.sass'
