@@ -1,22 +1,15 @@
 {% extends "layouts/errors/base.html" %}
 {% load static i18n %}
-{% block title %}403 | {% trans 'Access Denied' %}{% endblock %}
 
-{% block error_title %}
-    403
-{% endblock %}
+{% block title %}{% trans 'Access Denied' %}{% endblock %}
+{% block form_title %}{% trans 'Access Denied!' %}{% endblock %}
 
-{% block error_description %}
-    <h3 class="text-light">
-        {% trans 'ACCESS DENIED' %}
-    </h3>
-    <p class="description text-light mb-3">
-        No cuenta con los permisos para ver esta página, <br> para más indormacióm, por favor <br>
-        contáctese con <a  class="text-secondary" href="mailto:support@xiberty.com"><b>support@xiberty.com</b>.</a>
+{% block error_code %}403{% endblock %}
+{% block form_content %}
+    <p class="description mb-4 invalid-token">
+        {% blocktrans %}
+          You don't have enogh permissions to get this page, please, contact us at
+           <a  class="text-secondary" href="mailto:support@xiberty.com"><b>support@xiberty.com</b>.</a>
+        {% endblocktrans %}
     </p>
-    <a href="/" class="btn btn-dark btn-lg">
-        <i class="fa fa-home"></i>&nbsp;&nbsp;&nbsp;
-        {% trans 'Back to Start' %}&nbsp;
-    </a>
 {% endblock %}
-

@@ -1,21 +1,15 @@
 {% extends "layouts/errors/base.html" %}
 {% load static i18n %}
-{% block title %}404 | {% trans 'Resource not found' %}{% endblock %}
 
+{% block title %}{% trans 'Not Found' %}{% endblock %}
+{% block form_title %}{% trans 'Not Found!' %}{% endblock %}
 
-{% block error_title %}
-    404
-{% endblock %}
-
-{% block error_description %}
-    <h3 class="text-light">{% trans 'RESOURCE NOT FOUND' %}</h3>
-    <p class="description text-light mb-3">
-        Esta página no existe o esta en construcción, <br> para más indormacióm, por favor <br>
-        contáctese con <a  class="text-secondary" href="mailto:support@xiberty.com"><b>support@xiberty.com</b>.</a>
+{% block error_code %}404{% endblock %}
+{% block form_content %}
+    <p class="description mb-4 invalid-token">
+        {% blocktrans %}
+          Page not found, this resource don't exist or its under construction.
+        {% endblocktrans %}
     </p>
-    <a href="/" class="btn btn-dark btn-lg">
-        <i class="fa fa-home"></i>&nbsp;&nbsp;&nbsp;
-        {% trans 'Back to Start' %}&nbsp;
-    </a>
 {% endblock %}
 
