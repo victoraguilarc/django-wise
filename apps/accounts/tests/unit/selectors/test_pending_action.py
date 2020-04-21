@@ -3,7 +3,7 @@
 import pytest
 
 from apps.accounts.response_codes import INVALID_TOKEN
-from apps.accounts.selectors.pending_action import PendingActionSelector
+from apps.accounts.selectors.pending_action_selector import PendingActionSelector
 from apps.accounts.tests.factories.pending_action import PendingActionFactory
 from apps.contrib.api.exceptions import SimpleValidationError
 

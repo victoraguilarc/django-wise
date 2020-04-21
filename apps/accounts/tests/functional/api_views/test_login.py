@@ -8,7 +8,7 @@ from rest_framework.exceptions import NotAuthenticated, NotFound
 
 from apps.accounts.api.v1.serializers.session import SessionSerializer
 from apps.accounts.response_codes import INVALID_CREDENTIALS, USER_NOT_FOUND, INACTIVE_ACCOUNT
-from apps.accounts.selectors.user import UserSelector
+from apps.accounts.selectors.user_selector import UserSelector
 from apps.accounts.services.session import SessionService
 from apps.accounts.tests.conftest import TEST_PASSWORD
 

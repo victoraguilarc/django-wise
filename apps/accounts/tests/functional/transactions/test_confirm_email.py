@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# -*- coding: utf-8 -*-
 import pytest
-from django.test import RequestFactory
 from django.urls import reverse
 from doubles import allow, expect
 from rest_framework import status
@@ -10,7 +8,6 @@ from rest_framework import status
 from apps.accounts.models.choices import ActionCategory
 from apps.accounts.services.auth import AuthService
 from apps.accounts.tests.factories.pending_action import PendingActionFactory
-from apps.accounts.views.confirm_email import ConfirmEmailView
 
 
 @pytest.mark.django_db

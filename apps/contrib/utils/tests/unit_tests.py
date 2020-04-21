@@ -15,6 +15,7 @@ def has_same_code(item1, item2):
         item1.get('code') == item2.get('code')
     )
 
+
 def has_response_format(response):
     response_json = response.json()
     return {'code', 'message'} <= set(response_json.keys())

@@ -5,7 +5,7 @@ from rest_framework.exceptions import NotFound
 
 from apps.accounts.models import User
 from apps.accounts.response_codes import USER_NOT_FOUND
-from apps.accounts.selectors.user import UserSelector
+from apps.accounts.selectors.user_selector import UserSelector
 
 
 @pytest.mark.django_db

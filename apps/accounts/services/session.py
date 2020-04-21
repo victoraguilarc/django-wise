@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from json import JSONDecodeError
 
+from json import JSONDecodeError
 from django.conf import settings
 
 import requests

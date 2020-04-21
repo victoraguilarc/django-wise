@@ -10,10 +10,12 @@ def test_invalid_token_format():
     exc = SimpleJWTExceptionParser.parse(received_exc)
     assert isinstance(exc, NotAuthenticated)
 
+
 def test_authentication_failed_format():
     received_exc = AuthenticationFailed()
     exc = SimpleJWTExceptionParser.parse(received_exc)
     assert isinstance(exc, NotAuthenticated)
+
 
 def test_another_exception_format():
     received_exc = ValidationError()

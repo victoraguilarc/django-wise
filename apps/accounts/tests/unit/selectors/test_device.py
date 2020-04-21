@@ -5,7 +5,7 @@ from rest_framework.exceptions import NotFound
 
 from apps.accounts.models import PhoneDevice
 from apps.accounts.response_codes import DEVICE_NOT_FOUND
-from apps.accounts.selectors.device import PhoneDeviceSelector
+from apps.accounts.selectors.device_selector import PhoneDeviceSelector
 from apps.accounts.tests.factories.device import PhoneDeviceFactory
 
 

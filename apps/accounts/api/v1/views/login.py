@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from apps.accounts.api.v1.serializers.login import LoginSerializer
-from apps.accounts.selectors.user import UserSelector
+from apps.accounts.selectors.user_selector import UserSelector
 from apps.accounts.services.session import SessionService
 
 from apps.accounts.api.v1.serializers.session import (

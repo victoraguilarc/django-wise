@@ -14,6 +14,7 @@ class PlainTextParserTests:
         assert isinstance(parsed_data, str)
         assert parsed_data == self.content
 
+
 class SNSJsonParserTests:
     content = '{"status": "OK", "items": [0,1,2]}'
 
