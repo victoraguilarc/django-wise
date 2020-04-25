@@ -1,0 +1,1 @@
+$(document).ready(function(){for(var e=document.querySelectorAll(".mdc-text-field"),t=0;t<=e;t++)mdc.textField.MDCTextField.attachTo(e[t]);for(var c=document.querySelectorAll(".mdc-button"),d=0;d<=c;d++)mdc.ripple.MDCRipple.attachTo(c[d])});

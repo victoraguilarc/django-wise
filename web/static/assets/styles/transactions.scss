@@ -1,0 +1,81 @@
+@charset "utf-8";
+@import "fonts";
+
+html, body {
+	height: 100%;
+}
+body {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+
+	background: #fff;
+	font-family: "Lato", sans-serif !important;
+	font-style: normal;
+	padding: 0;
+	margin: 0;
+}
+
+
+.transaction-form {
+	padding: 1.2em;
+
+	.logo {
+		width: 100px;
+		height: 100px;
+	}
+
+	.title {
+		font-size: 1.6rem;
+		font-weight: 300;
+	}
+	.description {
+		font-size: 1rem;
+		font-weight: 400;
+		color: #a4b0be;
+	}
+
+	.mdc-floating-label {
+		font-family: "Lato", sans-serif !important;
+
+		&.mdc-floating-label--float-above {
+			font-weight: bold;
+		}
+	}
+	.mdc-text-field__input {
+		font-family: "Lato", sans-serif !important;
+	}
+	.mdc-text-field-helper-text.has-error {
+		color: #e74c3c !important;
+		font-weight: bold;
+	}
+}
+
+footer {
+	font-size: 0.7rem;
+	text-align: center;
+	display: block;
+    position: absolute;
+    bottom: 0;
+	width: 100%;
+	padding: 0.5rem 0;
+	.separator {
+		font-weight: bold;
+		padding: 0 0.3rem;
+	}
+	.rights {
+		color: #95a5a6;
+	}
+	.info, .info a, .rights a {
+		color: #34495e;
+		font-weight: bold;
+	}
+}
+
+.text-field-container {
+	width: 100%;
+	.text-field {
+		width: 100%;
+	}
+}

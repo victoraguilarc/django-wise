@@ -16,7 +16,6 @@ __pycache__/
 .idea/
 .sass-cache/
 .vagrant/
-assets/
 
 version.properties
 .sass-cache

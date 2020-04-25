@@ -56,12 +56,7 @@ COPY compose/start-prod /start
 RUN sed -i 's/\r//' /start
 RUN chmod +x /start
 
-ENV NEW_RELIC_LOG_LEVEL info
-ENV NEW_RELIC_LOG stdout
-RUN curl -sSL https://github.com/segmentio/chamber/releases/download/v2.7.5/chamber-v2.7.5-linux-amd64 > chamber \
-    && chmod +x chamber
-
 COPY . /app
 
 HEALTHCHECK CMD curl -sSf http://localhost:8000/ || exit 1
-CMD /app/chamber exec ${NEW_RELIC_APP_NAME} -- newrelic-admin run-program gunicorn -c gunicorn.ini config.wsgi
+CMD gunicorn -c gunicorn.ini config.wsgi

@@ -1,22 +1,32 @@
 {
-    "name": "project",
-    "version": "1.0.0",
-    "author": "Victor Aguilar C.",
-    "license": "MIT",
-    "dependencies": {
-        "browser-sync": "^2.26.7",
-        "gulp": "^3.9.1",
-        "gulp-less": "^3.0.3",
-        "gulp-rigger": "^0.5.8",
-        "gulp-rimraf": "^0.2.0",
-        "gulp-sass": "^3.1.0",
-        "gulp-sourcemaps": "^1.5.2",
-        "gulp-watch": "^4.3.3",
-        "material-components-web": "^1.1.1"
-    },
-    "devDependencies": {
-        "gulp-clean-css": "^2.0.6",
-        "gulp-htmlmin": "^1.3.0",
-        "gulp-install": "^0.6.0"
-    }
+  "name": "django-wise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^3.0.2",
+    "node-sass": "^4.14.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-changed": "^4.0.2",
+    "gulp-grep": "^0.2.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victoraguilarc/django-wise.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victoraguilarc/django-wise/issues"
+  },
+  "homepage": "https://github.com/victoraguilarc/django-wise#readme"
 }

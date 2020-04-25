@@ -1,4 +1,4 @@
-## DRF API StarterKit
+## API StarterKit
 
 
 ![styleguide](https://img.shields.io/badge/styleguide-flake8-blue)
@@ -29,11 +29,13 @@ You need to have installed `git`, `docker`, `ssh` and and a good `terminal`.
   * `make migrate` run django migrate command
   * `make superuser` make a superuserfor develoment
 
-#### Frontend
+#### Minimal Frontend
+This projeect contains minimal frontend to some transactional fallback windows specially.
+If you want to use it, run the following commands:
+
+  * `npm install --global gulp-cli` Install gulp
   * `npm install` Install nodejs dependencies
-  * `gulp bundle` generate `css`, `js`  files for development.
-  * `gulp bundle --prod` build `css`, `js` files for production
-  * `gulp watch` start watch over static files for development
+  * `gulp` generate `css`, `js`  production files.
    
 #### Pre commit actions
   * `make isort` Fix posible import issues
