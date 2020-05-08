@@ -10,9 +10,9 @@ from apps.contrib.views.errors import error_400, error_403, error_404, error_500
 
 from django.contrib import admin
 
-admin.site.site_header = 'Sawi'
-admin.site.site_title = 'Sawi Admin'
-admin.site.index_title = 'Sawi Admin'
+admin.site.site_header = 'Wise'
+admin.site.site_title = 'Wise Admin'
+admin.site.index_title = 'Wise Admin'
 
 urlpatterns = [
     # Django ADMIN

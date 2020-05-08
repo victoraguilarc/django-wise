@@ -12,10 +12,10 @@ class ArrayFieldSelectMultiple(FilteredSelectMultiple):
         self.delimiter = kwargs.pop('delimiter', ',')
         super().__init__(verbose_name, is_stacked, *args, **kwargs)
 
-    def render(self, name, field_value, attrs=None, renderer=None):  # noqa: D102
-        if isinstance(field_value, str):
-            field_value = field_value.split(self.delimiter)
-        return super().render(name, field_value, attrs, renderer)
+    def render(self, name, value, attrs=None, renderer=None):  # noqa: D102
+        if isinstance(value, str):
+            value = value.split(self.delimiter)
+        return super().render(name, value, attrs, renderer)
 
     def value_from_datadict(self, options_data, files, name):  # noqa: D107, D102
         if isinstance(options_data, MultiValueDict):
