@@ -2,7 +2,7 @@
 
 from django.db import models
 
-from apps.contrib.models import TimeStampedModelMixin, UUIDPrimaryKeyModelMixin
+from apps.contrib.models.mixins import TimeStampedModelMixin, UUIDPrimaryKeyModelMixin
 from apps.accounts.models.choices import Platform
 from apps.accounts.models.managers.phone_device import PhoneDeviceManager
 

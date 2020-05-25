@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from apps.contrib.models import BaseEnum
+from apps.contrib.models.enums import BaseEnum
 
 from django.utils.translation import ugettext_lazy as _
 

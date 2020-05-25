@@ -13,7 +13,7 @@
         "photo": "",
         "first_name": "Super",
         "last_name": "Admin",
-        "language": "es",
+        "lang": "en",
         "groups": [],
         "user_permissions": []
     }

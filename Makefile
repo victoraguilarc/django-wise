@@ -75,7 +75,7 @@ loaddata:
 
 fixtures:
 	@echo "Loading fixtures..."
-	$(COMPOSE) run --rm django python manage.py loaddata groups users users_prod_cdmx operators_prod_cdmx bases checklist_templates checklist_items firmware_versions
+	$(COMPOSE) run --rm django python manage.py loaddata users
 
 dumpdata:
 	@echo "Getting fixtures..."

@@ -8,7 +8,7 @@ from django.core.files import File
 from django.test.utils import override_settings
 
 from apps.contrib.utils import dates, files
-from apps.contrib.models import BaseEnum
+from apps.contrib.models.enums import BaseEnum
 from apps.contrib.utils.strings import get_uuid, get_hostname, compute_md5_hash
 
 from django.utils import timezone
