@@ -28,7 +28,7 @@ def generate_user_profile():
     }
 
 
-class UserFactory(factory.DjangoModelFactory):
+class UserFactory(factory.django.DjangoModelFactory):
 
     username = factory.LazyFunction(fake_username)
     email = factory.LazyFunction(fake.email)

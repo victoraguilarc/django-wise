@@ -6,7 +6,7 @@ from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from apps.accounts.response_codes import INVALID_REFRESH_TOKEN, LOGGED_OUT
-from apps.contrib.utils.tests.unit_tests import has_unauthorized, has_response_format
+from apps.contrib.utils.testing.unit_tests import has_unauthorized, has_response_format
 
 
 @pytest.mark.django_db

@@ -150,7 +150,7 @@ printenv:
 
 test:
 	@echo "Running tests with pytest cleaning cache..."
-	$(COMPOSE_TEST) run --rm django pytest --pyargs $(ARG)
+	$(COMPOSE_TEST) run --rm django bash -c "DJANGO_ENV=testing pytest --pyargs $(ARG)"
 
 tests:
 	$(COMPOSE_TEST) run --rm django pytest -n auto --pyargs $(ARG)
@@ -197,9 +197,9 @@ production_up:
 
 report_coverage:
 	@echo "Running coverage report"
-	cd reports/coverage && php -S localhost:3000
+	cd reports/coverage && python -m SimpleHTTPServer 3000
 
 report_lint:
 	@echo "Running coverage report"
-	cd reports/flake8 && php -S localhost:3000
+	cd reports/flake8 && python -m SimpleHTTPServer 3001
 

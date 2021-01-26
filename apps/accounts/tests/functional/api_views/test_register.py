@@ -12,7 +12,7 @@ from apps.accounts.api.v1.serializers.session import SessionSerializer
 from apps.accounts.response_codes import CONFIRMATION_EMAIL_SENT
 from apps.accounts.services.user import UserService
 from apps.accounts.tests.factories.user import generate_user_profile
-from apps.contrib.utils.tests.unit_tests import mail_outbox, has_same_code
+from apps.contrib.utils.testing.unit_tests import mail_outbox, has_same_code
 
 
 @pytest.mark.django_db

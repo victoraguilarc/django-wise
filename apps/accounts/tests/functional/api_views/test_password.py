@@ -6,7 +6,7 @@ from django.urls import reverse
 from apps.accounts import response_codes
 from apps.accounts.models.choices import ActionCategory
 from apps.accounts.tests.conftest import TEST_PASSWORD
-from apps.contrib.utils.tests.unit_tests import mail_outbox, has_response_format, has_unauthorized
+from apps.contrib.utils.testing.unit_tests import mail_outbox, has_response_format, has_unauthorized
 from apps.accounts.tests.factories.pending_action import PendingActionFactory
 
 

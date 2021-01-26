@@ -18,7 +18,7 @@ def now_after_three():
     return dates.ago(days=3)
 
 
-class PendingActionFactory(factory.DjangoModelFactory):
+class PendingActionFactory(factory.django.DjangoModelFactory):
     user = factory.SubFactory(UserFactory)
     category = fuzzy.FuzzyChoice(choices=ActionCategory.choices())
     creation_date = factory.LazyFunction(dates.now)

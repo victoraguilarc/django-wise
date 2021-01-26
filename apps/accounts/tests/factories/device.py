@@ -13,7 +13,7 @@ faker.add_provider(misc)
 faker.add_provider(lorem)
 
 
-class PhoneDeviceFactory(factory.DjangoModelFactory):
+class PhoneDeviceFactory(factory.django.DjangoModelFactory):
     token = factory.LazyFunction(faker.sha256)
     platform = FuzzyChoice(choices=Platform.values())
     model_name = factory.LazyFunction(faker.word)

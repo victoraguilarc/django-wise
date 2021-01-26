@@ -11,7 +11,7 @@ from apps.accounts.api.v1.serializers.user_profile import UserProfileSerializer
 from apps.accounts.response_codes import USERNAME_UNAVAILABLE
 from apps.accounts.tests.factories.user import generate_user_profile, UserFactory
 from apps.contrib.utils.files import generate_image
-from apps.contrib.utils.tests.unit_tests import has_same_code
+from apps.contrib.utils.testing.unit_tests import has_same_code
 
 faker = Factory.create()
 faker.add_provider(misc)

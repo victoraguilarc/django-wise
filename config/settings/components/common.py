@@ -39,22 +39,12 @@ DJANGO_APPS: Tuple[str, ...] = (
 
     # Useful template tags:
     'django.contrib.humanize',
-    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.admindocs',
 )
 
 THIRD_PARTY_APPS: Tuple[str, ...] = (
     # Security:
-
-    # Health checks:
-    # You may want to enable other checks as well,
-    # see: https://github.com/KristianOellegaard/django-health-check
-    'health_check',
-    'health_check.db',
-    'health_check.cache',
-    'health_check.storage',
-
     'constance',
 
     # API Rest
@@ -62,18 +52,13 @@ THIRD_PARTY_APPS: Tuple[str, ...] = (
     'rest_framework',
     'rest_framework_api_key',
     'rest_framework_simplejwt.token_blacklist',
-    'django_http_referrer_policy',
 
     # Async Tasks
-    'django_celery_beat',
-    'django_celery_results',
+    'django_q',
 
     # Assets
     'imagekit',
     'compressor',
-    'import_export',
-    'admin_sso',
-
 )
 
 LOCAL_APPS: Tuple[str, ...] = (
@@ -88,7 +73,6 @@ MIDDLEWARE: Tuple[str, ...] = (
     'corsheaders.middleware.CorsMiddleware',  # CORS
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
-    'django_feature_policy.FeaturePolicyMiddleware',  # django-feature-policy
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -96,9 +80,6 @@ MIDDLEWARE: Tuple[str, ...] = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    # Django HTTP Referrer Policy:
-    'django_http_referrer_policy.middleware.ReferrerPolicyMiddleware',
 )
 
 
@@ -177,7 +158,7 @@ TEMPLATES = [{
 # See: http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
 # STATIC FILE CONFIGURATION
 # ------------------------------------------------------------------------------
-DJANGO_HTDOCS_PATH = env('DJANGO_HTDOCS_PATH', default=join(PROJECT_PATH, 'assets'))
+DJANGO_HTDOCS_PATH = env('DJANGO_HTDOCS_PATH', default=join(PROJECT_PATH, 'public'))
 STATIC_ROOT = join(DJANGO_HTDOCS_PATH, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
@@ -214,7 +195,6 @@ PASSWORD_HASHERS = [
 # https://docs.djangoproject.com/en/2.2/topics/auth/
 # ------------------------------------------------------------------------------
 AUTHENTICATION_BACKENDS = (
-    'admin_sso.auth.DjangoSSOAuthBackend',
     'django.contrib.auth.backends.ModelBackend',
     'apps.contrib.auth_backends.SimpleEmailBackend',
 )

@@ -3,7 +3,7 @@ import pytest
 
 from apps.contrib.utils.files import load_test_photo
 from apps.accounts.models.user import User
-from apps.contrib.utils.tests.decorators import temporarily
+from apps.contrib.utils.testing.decorators import temporarily
 
 from django.utils.translation import ugettext_lazy as _
 

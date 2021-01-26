@@ -21,7 +21,6 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', default='development_secret_key')
 INSTALLED_APPS += (
     'debug_toolbar',
     'django_extensions',
-    'django_migration_linter',
 )
 TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
 

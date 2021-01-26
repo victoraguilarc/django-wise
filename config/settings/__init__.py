@@ -17,11 +17,11 @@ environ.setdefault('DJANGO_ENV', 'development')
 ENV = environ['DJANGO_ENV']
 
 base_settings = [
+    'components/async_tasks.py',
     'components/common.py',
     'components/databases.py',
     'components/caches.py',
     'components/logging.py',
-    'components/celery.py',
     'components/rest_framework.py',
     'components/providers.py',
     'components/preferences.py',

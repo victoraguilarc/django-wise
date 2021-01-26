@@ -19,21 +19,10 @@ services:
     volumes:
       - .:/app
 
-  celeryworker:
+  queue:
     <<: *django
-    ports: []
-    command: /start-celeryworker
-
-  celerybeat:
-    <<: *django
-    ports: []
-    command: /start-celerybeat
-
-  flower:
-    <<: *django
-    ports:
-      - "5555:5555"
-    command: /start-flower
+    ports: [ ]
+    command: python manage.py qcluster
 
   postgres:
     env_file:
