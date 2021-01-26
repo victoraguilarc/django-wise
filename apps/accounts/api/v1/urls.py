@@ -3,11 +3,11 @@
 from django.urls import path
 
 from apps.accounts.api.v1.views.email import EmailActionsViewSet
+from apps.accounts.api.v1.views.login import LoginView, GoogleLoginView, FacebookLoginView
 from apps.accounts.api.v1.views.logout import LogoutView
 from apps.accounts.api.v1.views.profile import ProfileViewSet
-from apps.accounts.api.v1.views.register import RegisterView
-from apps.accounts.api.v1.views.login import LoginView, GoogleLoginView, FacebookLoginView
 from apps.accounts.api.v1.views.password import PasswordActionsViewSet
+from apps.accounts.api.v1.views.register import RegisterView
 
 app_name = 'accounts'
 urlpatterns = [

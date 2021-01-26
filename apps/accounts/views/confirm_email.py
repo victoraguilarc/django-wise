@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 from django.views import View
-
 from django.shortcuts import render
-from apps.accounts.models.choices import ActionCategory
+
 from apps.accounts.services.auth import AuthService
+from apps.accounts.models.choices import ActionCategory
 from apps.accounts.models.pending_action import PendingAction
 
 

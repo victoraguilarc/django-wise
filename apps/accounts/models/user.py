@@ -5,12 +5,13 @@
 from django.db import models
 from django.conf import settings
 from django.core import validators
-
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
 
 from apps.contrib.utils.files import clean_static_url
+
 from django.contrib.auth.models import AbstractUser
+
 from django.utils.translation import ugettext_lazy as _
 
 REQUIRED_FIELDS = getattr(settings, 'PROFILE_REQUIRED_FIELDS', ['email'])

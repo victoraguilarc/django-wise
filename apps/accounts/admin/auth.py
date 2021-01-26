@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from django.contrib import admin
 from apps.accounts.models.pending_action import PendingAction
+
+from django.contrib import admin
 
 
 @admin.register(PendingAction)

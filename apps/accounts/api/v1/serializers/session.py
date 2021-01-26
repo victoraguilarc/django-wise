@@ -2,8 +2,8 @@
 
 from rest_framework import serializers
 
-from apps.accounts.api.v1.serializers.user_profile import UserProfileSerializer
 from apps.accounts.services.session import SessionService
+from apps.accounts.api.v1.serializers.user_profile import UserProfileSerializer
 
 
 class SessionSerializer(object):

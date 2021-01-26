@@ -2,7 +2,6 @@
 
 import json
 import boto3
-
 from environ import environ
 
 env = environ.Env()

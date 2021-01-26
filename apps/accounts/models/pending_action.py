@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 
 import uuid
-
 from django.db import models
-from django.core.serializers.json import DjangoJSONEncoder
 from django.db.models import JSONField
+from django.core.serializers.json import DjangoJSONEncoder
 
 from apps.accounts.models.choices import ActionCategory
-
 
 from django.utils.translation import ugettext_lazy as _
 

@@ -4,13 +4,12 @@ from constance import config
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from apps.accounts.api.v1.serializers.register import RegisterSerializer
-from apps.accounts.api.v1.serializers.session import SessionSerializer
-from apps.accounts.response_codes import CONFIRMATION_EMAIL_SENT
+from apps.contrib.api.responses import DoneResponse
 from apps.accounts.services.auth import AuthService
 from apps.accounts.services.user import UserService
-
-from apps.contrib.api.responses import DoneResponse
+from apps.accounts.response_codes import CONFIRMATION_EMAIL_SENT
+from apps.accounts.api.v1.serializers.session import SessionSerializer
+from apps.accounts.api.v1.serializers.register import RegisterSerializer
 
 
 class RegisterView(APIView):

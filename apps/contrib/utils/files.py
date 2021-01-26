@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 
 import io
-
+from PIL import Image
 from django.conf import settings
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
 from django.core.files.uploadedfile import SimpleUploadedFile
-
-from PIL import Image
 
 
 def generate_image(height=100, width=100, name='test.png'):

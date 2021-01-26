@@ -2,8 +2,8 @@
 
 from rest_framework import serializers
 from rest_framework.serializers import Serializer
-from rest_framework_simplejwt.exceptions import TokenError
 from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.exceptions import TokenError
 
 
 class TokenSerializer(Serializer):

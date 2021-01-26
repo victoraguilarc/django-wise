@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import pytest
+
 from apps.accounts.models import User
-from apps.accounts.services.user import UserService
 from apps.contrib.utils.files import generate_image
+from apps.accounts.services.user import UserService
 
 
 @pytest.mark.django_db

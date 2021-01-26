@@ -3,7 +3,7 @@
 from django.db.models import Q
 from rest_framework.exceptions import NotFound
 
-from apps.accounts.models import PhoneDevice, User
+from apps.accounts.models import User, PhoneDevice
 from apps.accounts.response_codes import USER_NOT_FOUND
 
 

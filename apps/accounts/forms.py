@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 
 import logging
-
 from django import forms
+
 from apps.accounts.models.user import User
+
 from django.contrib.auth import password_validation
+
 from django.utils.translation import ugettext_lazy as _
 
 logger = logging.getLogger(__name__)

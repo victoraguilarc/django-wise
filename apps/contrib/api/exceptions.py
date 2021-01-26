@@ -2,12 +2,12 @@
 
 from rest_framework import status
 from rest_framework.views import exception_handler
-from rest_framework.exceptions import APIException, _get_error_details, NotAuthenticated  # noqa: WPS436
-
-from django.utils.translation import ugettext_lazy as _
+from rest_framework.exceptions import APIException, NotAuthenticated, _get_error_details  # noqa: WPS436
 from rest_framework_simplejwt.exceptions import InvalidToken, AuthenticationFailed
 
 from apps.accounts.response_codes import INVALID_TOKEN, AUTHENTICATION_FAILED
+
+from django.utils.translation import ugettext_lazy as _
 
 
 class SimpleValidationError(APIException):

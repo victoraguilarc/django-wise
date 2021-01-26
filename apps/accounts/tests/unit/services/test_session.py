@@ -1,24 +1,20 @@
 
 # -*- coding: utf-8 -*-
 import json
-
 import pytest
 import requests_mock
 from doubles import allow
+from google.oauth2 import id_token
 from rest_framework import status
 from rest_framework.exceptions import NotAuthenticated
 
 from apps.accounts.models import User
+from apps.accounts.services.user import UserService
 from apps.accounts.response_codes import (
-    INVALID_GOOGLE_TOKEN_ISSUER,
-    INVALID_GOOGLE_TOKEN_ID,
-    INVALID_CREDENTIALS,
-    INACTIVE_ACCOUNT, INVALID_FACEBOOK_ACCESS_TOKEN,
+    INACTIVE_ACCOUNT, INVALID_CREDENTIALS, INVALID_GOOGLE_TOKEN_ID, INVALID_GOOGLE_TOKEN_ISSUER,
+    INVALID_FACEBOOK_ACCESS_TOKEN
 )
 from apps.accounts.services.session import SessionService
-from apps.accounts.services.user import UserService
-
-from google.oauth2 import id_token
 
 
 @pytest.mark.django_db

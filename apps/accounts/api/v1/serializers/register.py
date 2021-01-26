@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
 from django.conf import settings
-
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
 from apps.accounts import response_codes
-from apps.accounts.api.v1.serializers.email import EmailSerializer
 from apps.accounts.models import User
+from apps.accounts.api.v1.serializers.email import EmailSerializer
 
 
 class RegisterSerializer(EmailSerializer):

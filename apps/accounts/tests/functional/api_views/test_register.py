@@ -1,18 +1,17 @@
 # -*- coding: utf-8 -*-
-from constance.test import override_config
-from django.conf import settings
-from django.urls import reverse
-
 import pytest
 from doubles import allow
+from django.conf import settings
+from django.urls import reverse
+from constance.test import override_config
 from rest_framework import status
 
 from apps.accounts import response_codes
-from apps.accounts.api.v1.serializers.session import SessionSerializer
-from apps.accounts.response_codes import CONFIRMATION_EMAIL_SENT
 from apps.accounts.services.user import UserService
+from apps.accounts.response_codes import CONFIRMATION_EMAIL_SENT
 from apps.accounts.tests.factories.user import generate_user_profile
 from apps.contrib.utils.testing.unit_tests import mail_outbox, has_same_code
+from apps.accounts.api.v1.serializers.session import SessionSerializer
 
 
 @pytest.mark.django_db

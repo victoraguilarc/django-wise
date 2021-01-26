@@ -24,6 +24,7 @@ freezegun==1.1.0  # https://github.com/spulec/freezegun
 mypy==0.800  # https://github.com/python/mypy
 isort==5.7.0  # https://github.com/timothycrosley/isort
 wemake-python-styleguide==0.14.1  # https://wemake-python-stylegui.de
+flake8-isort==4.0.0  # https://github.com/tholo/pytest-flake8
 flake8-pytest==1.3  # https://github.com/tholo/pytest-flake8
 flake8-pytest-style==1.3.0  # https://github.com/m-burst/flake8-pytest-style
 flake8-django==1.1.1  # https://github.com/rocioar/flake8-django

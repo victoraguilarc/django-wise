@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import io
-from apps.contrib.api.parsers import PlainTextParser, SNSJsonParser
+
+from apps.contrib.api.parsers import SNSJsonParser, PlainTextParser
 
 
 class PlainTextParserTests:

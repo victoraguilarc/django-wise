@@ -172,7 +172,7 @@ coverage_tests:
 
 lint:
 	@echo "Verifying the code"
-	$(COMPOSE) run --rm django flake8 --format=html $(ARG)
+	$(COMPOSE) run --rm django flake8 $(ARG)
 
 bash:
 	@echo "Opening a shell session"
@@ -180,7 +180,7 @@ bash:
 
 isort:
 	@echo "Opening a shell session"
-	$(COMPOSE) run --rm django isort -rc $(ARG)
+	$(COMPOSE) run --rm django isort .
 
 locales:
 	@echo "Generate traslations"

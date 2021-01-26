@@ -5,13 +5,13 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.permissions import AllowAny, IsAuthenticated
 
 from apps.accounts import response_codes
-from apps.accounts.api.v1.serializers.login import UsernameOrEmailSerializer
-from apps.accounts.api.v1.serializers.token import TokenSerializer
-from apps.accounts.models.choices import ActionCategory
-from apps.accounts.selectors.pending_action_selector import PendingActionSelector
-from apps.accounts.selectors.user_selector import UserSelector
 from apps.contrib.api.responses import DoneResponse
 from apps.accounts.services.auth import AuthService
+from apps.accounts.models.choices import ActionCategory
+from apps.accounts.selectors.user_selector import UserSelector
+from apps.accounts.api.v1.serializers.login import UsernameOrEmailSerializer
+from apps.accounts.api.v1.serializers.token import TokenSerializer
+from apps.accounts.selectors.pending_action_selector import PendingActionSelector
 
 
 class EmailActionsViewSet(ViewSet):

@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from rest_framework.exceptions import NotAuthenticated, ValidationError
+from rest_framework.exceptions import ValidationError, NotAuthenticated
 from rest_framework_simplejwt.exceptions import InvalidToken, AuthenticationFailed
+
 from apps.contrib.api.exceptions import SimpleJWTExceptionParser
 
 

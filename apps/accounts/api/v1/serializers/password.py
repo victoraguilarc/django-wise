@@ -5,8 +5,9 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.serializers import Serializer
 
 from apps.accounts import response_codes
-from apps.accounts.api.v1.serializers.login import UsernameOrEmailSerializer
 from apps.accounts.models import User
+from apps.accounts.api.v1.serializers.login import UsernameOrEmailSerializer
+
 from django.utils.translation import ugettext_lazy as _
 
 PASSWORD_MAX_LENGTH = User._meta.get_field('password').max_length  # noqa: WPS437

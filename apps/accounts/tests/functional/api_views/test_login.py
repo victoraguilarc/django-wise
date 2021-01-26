@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from django.urls import reverse
 from doubles import allow
+from django.urls import reverse
 from rest_framework import status
-from rest_framework.exceptions import NotAuthenticated, NotFound
+from rest_framework.exceptions import NotFound, NotAuthenticated
 
-from apps.accounts.api.v1.serializers.session import SessionSerializer
-from apps.accounts.response_codes import INVALID_CREDENTIALS, USER_NOT_FOUND, INACTIVE_ACCOUNT
-from apps.accounts.selectors.user_selector import UserSelector
-from apps.accounts.services.session import SessionService
+from apps.accounts.response_codes import USER_NOT_FOUND, INACTIVE_ACCOUNT, INVALID_CREDENTIALS
 from apps.accounts.tests.conftest import TEST_PASSWORD
+from apps.accounts.services.session import SessionService
+from apps.accounts.selectors.user_selector import UserSelector
+from apps.accounts.api.v1.serializers.session import SessionSerializer
 
 
 @pytest.mark.django_db

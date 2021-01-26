@@ -42,6 +42,12 @@ Probably you need to user the following command for another situations.
 * `make test ARG=path_to_file` run pytest of a single test file.
   
 ### Code Quality
+Firstly we need to configure pre-commit hooks, we need to do this just one time.
+* `brew install pre-commit` installs pre-commit
+* `pre-commit install` install hooks in the current repo.
+* `pre-commit autoupdate` enables the pre-commit autoupdate.
+
+Recurring commands:
 * `make coverage` run pytest and generate the coverage report.
 * `make lint` run flake8 and generate linting report.
 * `make report_coverage` serves the coverage report as html at `localhost:3000`

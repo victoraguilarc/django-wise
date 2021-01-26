@@ -2,7 +2,6 @@
 
 from io import BytesIO
 from datetime import datetime
-
 from django.http import HttpRequest
 from django.core.files import File
 from django.test.utils import override_settings

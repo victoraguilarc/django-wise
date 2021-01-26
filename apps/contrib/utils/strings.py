@@ -2,7 +2,6 @@
 
 import uuid
 import hashlib
-
 from django.conf import settings
 
 from apps.contrib.utils.dates import ago, now

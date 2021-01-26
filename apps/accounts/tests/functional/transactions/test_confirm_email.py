@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from django.urls import reverse
 from doubles import allow, expect
+from django.urls import reverse
 from rest_framework import status
 
-from apps.accounts.models.choices import ActionCategory
 from apps.accounts.services.auth import AuthService
+from apps.accounts.models.choices import ActionCategory
 from apps.accounts.tests.factories.pending_action import PendingActionFactory
 
 

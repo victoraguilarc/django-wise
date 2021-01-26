@@ -4,6 +4,7 @@ from apps.accounts.forms import UserCreationForm
 from apps.accounts.admin.user import UserCreationForm as UserCreationAdminForm
 from apps.accounts.models.user import User
 from apps.accounts.tests.factories.user import generate_user_profile
+
 from django.utils.translation import ugettext_lazy as _
 
 

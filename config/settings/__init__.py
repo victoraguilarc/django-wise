@@ -9,7 +9,6 @@ To change settings file:
 """
 
 from os import environ
-
 from split_settings.tools import include, optional
 
 # Managing environment via DJANGO_ENV variable:

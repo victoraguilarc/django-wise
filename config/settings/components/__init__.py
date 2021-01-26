@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from os.path import join, dirname
-
 from environ import environ
+from os.path import join, dirname
 
 PROJECT_PATH = dirname(dirname(dirname(dirname(__file__))))
 APPS_PATH = join(PROJECT_PATH, 'apps')

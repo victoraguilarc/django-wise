@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import random
 import pytest
+import random
 from pytest_django.lazy_django import skip_if_no_django
-
 
 from apps.accounts.models.choices import ActionCategory
 from apps.accounts.tests.factories.user import UserFactory
-
 
 TEST_PASSWORD = 'test_password'
 

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from rest_framework import serializers
+
 from apps.accounts.models.phone_device import PhoneDevice
 
 

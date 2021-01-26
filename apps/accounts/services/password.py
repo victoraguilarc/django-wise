@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from apps.accounts.models import User, PendingAction
-from apps.accounts.models.choices import ActionCategory
 from apps.contrib.utils.strings import get_lapse
+from apps.accounts.models.choices import ActionCategory
 
 
 class PasswordService(object):

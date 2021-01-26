@@ -1,25 +1,21 @@
 # -*- coding: utf-8 -*-
 
-from json import JSONDecodeError
-from django.conf import settings
-
 import requests
 import cachecontrol
+from json import JSONDecodeError
+from django.conf import settings
 from google.oauth2 import id_token
 from google.auth.transport import requests as google_requests
-from rest_framework_simplejwt.exceptions import TokenError
-from rest_framework_simplejwt.tokens import RefreshToken
-
 from rest_framework.exceptions import NotAuthenticated
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.exceptions import TokenError
 
 from apps.accounts.models import User
-from apps.accounts.response_codes import (
-    INVALID_GOOGLE_TOKEN_ISSUER,
-    INVALID_GOOGLE_TOKEN_ID,
-    INVALID_CREDENTIALS,
-    INACTIVE_ACCOUNT,
-    INVALID_FACEBOOK_ACCESS_TOKEN, INVALID_REFRESH_TOKEN)
 from apps.accounts.services.user import UserService
+from apps.accounts.response_codes import (
+    INACTIVE_ACCOUNT, INVALID_CREDENTIALS, INVALID_REFRESH_TOKEN, INVALID_GOOGLE_TOKEN_ID, INVALID_GOOGLE_TOKEN_ISSUER,
+    INVALID_FACEBOOK_ACCESS_TOKEN
+)
 
 
 class SessionService(object):

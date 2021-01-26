@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import factory
-from faker.providers import person, misc, profile
 from faker import Factory
+from faker.providers import misc, person, profile
+
 from apps.accounts.models.user import User
 
 fake = Factory.create()

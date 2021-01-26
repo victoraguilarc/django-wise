@@ -1,25 +1,20 @@
 # -*- coding: utf-8 -*-
 
 import json
-import random
 import pytest
-
-import oscrypto.asymmetric
+import random
 import requests_mock
-from django.core.cache import cache
+import oscrypto.asymmetric
 from doubles import allow, expect
-
 from rest_framework import status
+from django.core.cache import cache
 
+from apps.contrib.views.sns import SNSValidator, SNSEndpointMixin
 from apps.contrib.api.exceptions import SimpleValidationError
 from apps.contrib.response_codes import (
-    NOT_SNS_REQUEST,
-    METHOD_NOT_ALLOWED,
-    SNS_ENDPOINT_SUBSCRIBE_FAILED,
-    INVALID_SNS_SIGNATURE,
+    NOT_SNS_REQUEST, METHOD_NOT_ALLOWED, INVALID_SNS_SIGNATURE, SNS_ENDPOINT_SUBSCRIBE_FAILED
 )
-from apps.contrib.tests.factories.sns import generate_sns_subscription, generate_sns_notification
-from apps.contrib.views.sns import SNSValidator, SNSEndpointMixin
+from apps.contrib.tests.factories.sns import generate_sns_notification, generate_sns_subscription
 
 
 class SNSValidatorTests:

@@ -1,8 +1,8 @@
 from typing import Any
 
 from apps.accounts.models import PendingAction
-from apps.accounts.response_codes import INVALID_TOKEN
 from apps.contrib.api.exceptions import SimpleValidationError
+from apps.accounts.response_codes import INVALID_TOKEN
 
 
 class PendingActionSelector(object):

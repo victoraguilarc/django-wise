@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from django.urls import reverse
 from doubles import allow
-
+from django.urls import reverse
 from rest_framework import status
 from rest_framework.exceptions import NotAuthenticated
 
-from apps.accounts.api.v1.serializers.session import SessionSerializer
 from apps.accounts.response_codes import INVALID_GOOGLE_TOKEN_ID, INVALID_GOOGLE_TOKEN_ISSUER
 from apps.accounts.services.session import SessionService
+from apps.accounts.api.v1.serializers.session import SessionSerializer
 
 
 @pytest.mark.django_db

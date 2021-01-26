@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from apps.accounts.forms import ResetPasswordForm
+
 from django.utils.translation import ugettext_lazy as _
 
 
