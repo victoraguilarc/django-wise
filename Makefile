@@ -201,5 +201,5 @@ report_coverage:
 
 report_lint:
 	@echo "Running coverage report"
-	cd reports/flake8 && python -m SimpleHTTPServer 3001
+	$(COMPOSE) run --rm django flake8 --format=html && cd reports/flake8 && python -m SimpleHTTPServer 3001
 

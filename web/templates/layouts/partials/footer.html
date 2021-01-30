@@ -1,17 +1,10 @@
 {% load static i18n %}
 
 <footer>
-    <div class="rights">
-        Copyright  © 2020 <a href="{{ project_owner_domain }}">{{ project_owner }}</a> -
-        {% trans 'All rights reserved' %}
+    <div class="rights" style="font-size: 0.8rem; text-align: center;color: gray;">
+      <i>{{ project_name }}</i> © {% trans 'All rights reserved' %}
     </div>
-    <div class="info">
+    <div class="info"  style="font-size: 0.8rem; text-align: center;color: gray;">
         <a href="mailto:{{ project_support_email }}">{{ project_support_email }}</a>
-        <span class="separator">|</span>
-        <a href="tel:{{ project_support_phone }}">{{ project_support_phone }}</a>
-        <span class="separator">|</span>
-        <a href="{{ project_terms_url }}">
-            {% trans 'Terms of use' %}
-        </a>
     </div>
 </footer>

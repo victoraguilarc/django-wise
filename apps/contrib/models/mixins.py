@@ -49,3 +49,8 @@ class UUIDPrimaryKeyModelMixin(models.Model):
 
     class Meta:
         abstract = True
+
+
+class UUIDWithTimestampMixin(UUIDPrimaryKeyModelMixin, TimeStampedModelMixin):
+    class Meta:
+        abstract = True

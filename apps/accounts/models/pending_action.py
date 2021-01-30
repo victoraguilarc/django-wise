@@ -5,12 +5,13 @@ from django.db import models
 from django.db.models import JSONField
 from django.core.serializers.json import DjangoJSONEncoder
 
+from apps.contrib.models.mixins import UUIDWithTimestampMixin
 from apps.accounts.models.choices import ActionCategory
 
 from django.utils.translation import ugettext_lazy as _
 
 
-class PendingAction(models.Model):
+class PendingAction(UUIDWithTimestampMixin):
     """Represents an user actions that it must be completed."""
 
     user = models.ForeignKey(

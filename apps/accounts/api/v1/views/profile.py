@@ -4,9 +4,9 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
 from apps.contrib.api.viewsets import PermissionViewSet
-from apps.accounts.services.user import UserService
-from apps.accounts.api.v1.serializers.user import UserUpdateSerializer
-from apps.accounts.api.v1.serializers.user_profile import UserProfileSerializer
+from apps.accounts.serializers.user import UserUpdateSerializer
+from apps.accounts.services.user_service import UserService
+from apps.accounts.serializers.user_profile import UserProfileSerializer
 
 
 class ProfileViewSet(PermissionViewSet):

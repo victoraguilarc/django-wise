@@ -5,7 +5,7 @@ import pytest
 
 from apps.accounts.models import PendingAction
 from apps.accounts.models.choices import ActionCategory
-from apps.accounts.services.password import PasswordService
+from apps.accounts.services.password_service import PasswordService
 from apps.accounts.tests.factories.pending_action import PendingActionFactory
 
 

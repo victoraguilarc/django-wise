@@ -7,6 +7,7 @@ from django.conf import settings
 from django.core import validators
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
+from phonenumber_field.modelfields import PhoneNumberField
 
 from apps.contrib.utils.files import clean_static_url
 
@@ -73,6 +74,11 @@ class User(AbstractUser):
         null=True,
     )
 
+    phone_number = PhoneNumberField(
+        verbose_name=_('Phone Number'),
+        null=True, blank=True
+    )
+
     lang = models.CharField(
         verbose_name=_('Language'),
         choices=settings.LANGUAGES,
@@ -111,4 +117,5 @@ class User(AbstractUser):
         db_table = 'users'
         verbose_name = _('User')
         verbose_name_plural = _('Users')
+        unique_together = ('email', 'phone_number')
         app_label = 'accounts'

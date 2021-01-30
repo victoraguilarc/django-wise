@@ -10,7 +10,7 @@ from apps.contrib.utils.files import generate_image
 from apps.accounts.response_codes import USERNAME_UNAVAILABLE
 from apps.accounts.tests.factories.user import UserFactory, generate_user_profile
 from apps.contrib.utils.testing.unit_tests import has_same_code
-from apps.accounts.api.v1.serializers.user_profile import UserProfileSerializer
+from apps.accounts.serializers.user_profile import UserProfileSerializer
 
 faker = Factory.create()
 faker.add_provider(misc)

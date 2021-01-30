@@ -7,8 +7,8 @@ from rest_framework import status
 from rest_framework.exceptions import NotAuthenticated
 
 from apps.accounts.response_codes import INVALID_FACEBOOK_ACCESS_TOKEN
-from apps.accounts.services.session import SessionService
-from apps.accounts.api.v1.serializers.session import SessionSerializer
+from apps.accounts.serializers.session import SessionSerializer
+from apps.accounts.services.session_service import SessionService
 
 
 @pytest.mark.django_db

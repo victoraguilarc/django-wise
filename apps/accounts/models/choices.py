@@ -26,10 +26,12 @@ class ActionCategory(BaseEnum):
 
     CONFIRM_EMAIL = 'confirm_email'
     RESET_PASSWORD = 'reset_password'   # noqa: S105
+    VERIFY_PHONE_NUMBER = 'verify_phone_number'   # noqa: S105
 
     @classmethod
     def choices(cls):  # noqa: D102
         return (
             (cls.CONFIRM_EMAIL.value, _('Confirm e-mail')),
             (cls.RESET_PASSWORD.value, _('Reset Password')),
+            (cls.VERIFY_PHONE_NUMBER.value, _('Verify Phone Number')),
         )

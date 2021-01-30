@@ -3,9 +3,9 @@
 from django.views import View
 from django.shortcuts import render
 
-from apps.accounts.services.auth import AuthService
 from apps.accounts.models.choices import ActionCategory
 from apps.accounts.models.pending_action import PendingAction
+from apps.accounts.services.auth_service import AuthService
 
 
 class ConfirmEmailView(View):

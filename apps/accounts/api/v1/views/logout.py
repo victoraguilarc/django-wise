@@ -5,8 +5,8 @@ from rest_framework.permissions import IsAuthenticated
 
 from apps.accounts import response_codes
 from apps.contrib.api.responses import DoneResponse
-from apps.accounts.services.session import SessionService
-from apps.accounts.api.v1.serializers.token import RefreshTokenSerializer
+from apps.accounts.serializers.token import RefreshTokenSerializer
+from apps.accounts.services.session_service import SessionService
 
 
 class LogoutView(APIView):

@@ -9,12 +9,12 @@ from rest_framework import status
 from rest_framework.exceptions import NotAuthenticated
 
 from apps.accounts.models import User
-from apps.accounts.services.user import UserService
 from apps.accounts.response_codes import (
     INACTIVE_ACCOUNT, INVALID_CREDENTIALS, INVALID_GOOGLE_TOKEN_ID, INVALID_GOOGLE_TOKEN_ISSUER,
     INVALID_FACEBOOK_ACCESS_TOKEN
 )
-from apps.accounts.services.session import SessionService
+from apps.accounts.services.user_service import UserService
+from apps.accounts.services.session_service import SessionService
 
 
 @pytest.mark.django_db

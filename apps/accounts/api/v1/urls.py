@@ -8,6 +8,7 @@ from apps.accounts.api.v1.views.logout import LogoutView
 from apps.accounts.api.v1.views.profile import ProfileViewSet
 from apps.accounts.api.v1.views.password import PasswordActionsViewSet
 from apps.accounts.api.v1.views.register import RegisterView
+from apps.accounts.api.v1.views.phone_verification import PhoneVerification
 
 app_name = 'accounts'
 urlpatterns = [
@@ -72,5 +73,10 @@ urlpatterns = [
         'me/password/',
         PasswordActionsViewSet.as_view({'put': 'update_password', 'post': 'set_password'}),
         name='password',
+    ),
+    path(
+        'me/phone-verification/',
+        PhoneVerification.as_view(),
+        name='phone-verification',
     ),
 ]

@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-
-# Rest Framework
 # See: https://www.django-rest-framework.org/api-guide/settings/
 from datetime import timedelta
 
@@ -36,7 +34,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 25,
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
-    'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%SZ',
+    'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%SZ',  # noqa: WPS323
 }
 APPEND_SLASH = True
 

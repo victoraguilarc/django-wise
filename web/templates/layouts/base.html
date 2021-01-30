@@ -12,25 +12,23 @@
 
         <title>{% block title %}{% endblock %} | {{ project_name }}</title>
 
-        <link href="{% static 'vendors/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
-        <link href="{% static 'vendors/material-design/material-components-web.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/normalize.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/simple-grid.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+        <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css" rel="stylesheet">
 
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
         {% block extra_styles %}{% endblock %}
     </head>
 
-    <body class="{% block body_class %}{% endblock %}">
-
+    <body class="{% block body_class %}{% endblock %}" style="height: 100%;">
         {% block body_content %}{% endblock %}
-
-
         {% if not DEBUG %}
             {% include "layouts/partials/analytics.html" %}
         {% endif %}
-
-        <script src="{% static 'vendors/jquery/jquery.min.js' %}"></script>
-        <script src="{% static 'vendors/bootstrap/js/bootstrap.js' %}"></script>
-        <script src="{% static 'vendors/material-design/material-components-web.js' %}"></script>
-
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        {% block scripts %}{% endblock %}
         {% block extra_scripts %}{% endblock %}
     </body>
 </html>

@@ -5,11 +5,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from apps.contrib.api.responses import DoneResponse
-from apps.accounts.services.auth import AuthService
-from apps.accounts.services.user import UserService
 from apps.accounts.response_codes import CONFIRMATION_EMAIL_SENT
-from apps.accounts.api.v1.serializers.session import SessionSerializer
-from apps.accounts.api.v1.serializers.register import RegisterSerializer
+from apps.accounts.serializers.session import SessionSerializer
+from apps.accounts.serializers.register import RegisterSerializer
+from apps.accounts.services.auth_service import AuthService
+from apps.accounts.services.user_service import UserService
 
 
 class RegisterView(APIView):

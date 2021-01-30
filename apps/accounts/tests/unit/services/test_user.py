@@ -5,7 +5,7 @@ import pytest
 
 from apps.accounts.models import User
 from apps.contrib.utils.files import generate_image
-from apps.accounts.services.user import UserService
+from apps.accounts.services.user_service import UserService
 
 
 @pytest.mark.django_db

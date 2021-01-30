@@ -14,12 +14,21 @@ whitenoise==5.2.0  # https://github.com/evansd/whitenoise
 #
 django-braces==1.14.0
 
-
 #
 # M O D E L S
 #
 psycopg2==2.8.6 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
 django-model-utils==4.1.1  # https://github.com/jazzband/
+
+
+#
+#  O N E   T I M E   P A S S W O R D
+#
+phonenumbers==8.12.17  # https://github.com/daviddrysdale/python-phonenumbers
+django-phonenumber-field==5.0.0  # https://github.com/stefanfoulis/django-phonenumber-field
+pyotp==2.5.1  # https://github.com/pyauth/pyotp
+twilio==6.51.1
+
 
 #
 # A S Y N C  T A S K S

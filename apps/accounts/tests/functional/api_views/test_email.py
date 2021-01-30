@@ -6,8 +6,8 @@ from django.urls import reverse
 from rest_framework import status
 
 from apps.accounts import response_codes
-from apps.accounts.services.auth import AuthService
 from apps.accounts.models.choices import ActionCategory
+from apps.accounts.services.auth_service import AuthService
 from apps.accounts.tests.factories.pending_action import PendingActionFactory
 
 

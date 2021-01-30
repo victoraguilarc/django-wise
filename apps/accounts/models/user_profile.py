@@ -3,7 +3,6 @@
 from django.db import models
 
 from apps.contrib.models.mixins import TimeStampedModelMixin
-from apps.accounts.models.choices import Specialties
 
 from django.utils.translation import ugettext_lazy as _
 

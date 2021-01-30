@@ -73,3 +73,12 @@ following commands:
   * `npm install --global gulp-cli` Install gulp globally
   * `npm install` Install nodejs dependencies
   * `gulp` generate `css`, `js`  frontend assets.
+
+## Tools
+  - Postman Collection
+  - Swagger API docs
+
+## Deployment Guides
+  - Manually Deployment
+  - Using `wise-cli`
+  - Using `wise-cdk`

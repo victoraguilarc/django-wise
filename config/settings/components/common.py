@@ -53,6 +53,9 @@ THIRD_PARTY_APPS: Tuple[str, ...] = (
     'rest_framework_api_key',
     'rest_framework_simplejwt.token_blacklist',
 
+    # Models
+    'phonenumber_field',
+
     # Async Tasks
     'django_q',
 
@@ -235,7 +238,7 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
-PROJECT_NAME = 'Wise API'
+PROJECT_NAME = 'Wise'
 PROJECT_HOSTNAME = env('DJANGO_HOSTNAME', default='http://localhost:8000')
 PROJECT_AUTHOR = 'Support <{0}>'.format(PROJECT_SUPPORT_EMAIL)
 PROJECT_OWNER = 'Wise'
