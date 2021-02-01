@@ -12,8 +12,8 @@ class RequestPhoneVerificationSerializer(serializers.Serializer):
 
 class PhoneVerificationSerializer(serializers.Serializer):
     """Process the phone device information."""
-    token = serializers.CharField()
-    code = serializers.CharField(max_length=6)
+    pending_action = serializers.CharField()
+    verification_code = serializers.CharField(max_length=6)
 
 
 class PendingPhoneVerificationSerializer(object):
@@ -26,6 +26,5 @@ class PendingPhoneVerificationSerializer(object):
     @property
     def data(self):
         return {
-            'uuid': self.pending_action.uuid,
-            'token': self.pending_action.token,
+            'pending_action': self.pending_action.uuid,
         }

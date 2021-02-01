@@ -17,28 +17,39 @@ class OTPService(object):
     """class to process One Time Password flows."""
 
     @classmethod
-    def generate_code(cls):
-        totp = pyotp.TOTP(settings.SECRET_KEY)
+    def generate_secret_key(cls):
+        return pyotp.random_base32()
+
+    @classmethod
+    def generate_code(cls, secret_key: str):
+        totp = pyotp.TOTP(secret_key)
         return totp.now()  # => 'e.g. 492039'
 
     @classmethod
     def send_verification_code(cls, phone_number: str, code):
         formatted_message = (
-            f'{_("Your code is")}:'
-            f'{code}\n@{config.OTP_VALIDATION_URL}  #{code}'
+            f'{_("OTP")}: '
+            f'{code}.\n\n@{config.OTP_VALIDATION_URL}  #{code}'
         )
         TwilioClient.send_sms(phone_number, formatted_message)
 
     @classmethod
     def request_code_verification(cls, user: User, phone_number: str) -> PendingAction:
         creation_date, expiration_date = get_lapse()
-        data = {'phone_number': phone_number}
         pending_action = PendingAction.objects.create(
             user=user,
             category=ActionCategory.VERIFY_PHONE_NUMBER,
             creation_date=creation_date,
             expiration_date=expiration_date,
-            extra=data,
         )
-        cls.send_verification_code(phone_number, cls.generate_code())
+        secret_key = cls.generate_secret_key()
+        one_time_code = cls.generate_code(secret_key)
+        cls.send_verification_code(phone_number, one_time_code)
+
+        pending_action.extra = {
+            'phone_number': phone_number,
+            'secret_key': phone_number
+        }
+        pending_action.save(update_fields=['extra'])
+
         return pending_action

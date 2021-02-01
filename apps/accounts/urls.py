@@ -4,7 +4,7 @@ from django.urls import path
 
 from apps.accounts.views.confirm_email import ConfirmEmailView
 from apps.accounts.views.reset_password import ResetPasswordView
-from apps.accounts.views.validate_phone_number import ValidatePhoneNumberView
+from apps.accounts.views.phone_verification import PhoneVerificationView
 
 app_name = 'accounts'
 urlpatterns = [
@@ -20,8 +20,8 @@ urlpatterns = [
         name='reset-password',
     ),
     path(
-        'validate-phone-number/',
-        view=ValidatePhoneNumberView.as_view(),
-        name='validate-phone-number',
+        'phone-verification/',
+        view=PhoneVerificationView.as_view(),
+        name='phone-verification',
     )
 ]

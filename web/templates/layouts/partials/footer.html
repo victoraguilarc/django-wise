@@ -1,10 +1,7 @@
 {% load static i18n %}
 
-<footer>
-    <div class="rights" style="font-size: 0.8rem; text-align: center;color: gray;">
-      <i>{{ project_name }}</i> © {% trans 'All rights reserved' %}
-    </div>
-    <div class="info"  style="font-size: 0.8rem; text-align: center;color: gray;">
-        <a href="mailto:{{ project_support_email }}">{{ project_support_email }}</a>
-    </div>
+<footer class="transaction-footer">
+  <div class="rights" style="font-size: 0.8rem; text-align: center;color: gray;">
+     <span class="project">{{ project_name }}</span> © {% trans 'All rights reserved' %}
+  </div>
 </footer>

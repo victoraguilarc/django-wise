@@ -2,19 +2,18 @@
 {% load i18n static %}
 
 {% block title %}
-    {% trans 'Email Confirmation' %}
+  {% trans 'Email Confirmation' %}
 {% endblock %}
 
 {% block form_title %}
-   {% trans 'Successful confirmation!' %}
+ {% trans 'Successful confirmation!' %}
 {% endblock %}
 
 {% block form_content %}
-    <p class="description mb-4 invalid-token">
-        {% blocktrans %}
-        This confirmation link <b>has expired or has already been used.</b>
-            Please try another link.
-        {% endblocktrans %}
-    </p>
+  <p class="transaction-message">
+    {% blocktrans %}
+    This confirmation link <b>has expired or has already been used.</b> Please try another link.
+    {% endblocktrans %}
+  </p>
 {% endblock %}
 

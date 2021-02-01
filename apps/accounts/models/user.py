@@ -113,6 +113,10 @@ class User(AbstractUser):
             return self.first_name
         return self.username
 
+    @property
+    def has_valid_phone_number(self):
+        return self.phone_number is not None
+
     class Meta:
         db_table = 'users'
         verbose_name = _('User')

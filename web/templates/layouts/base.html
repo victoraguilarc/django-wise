@@ -16,8 +16,6 @@
         <link href="{% static 'vendors/simple-grid.css' %}" rel="stylesheet">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
         <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css" rel="stylesheet">
-
-        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
         {% block extra_styles %}{% endblock %}
     </head>
 
@@ -26,6 +24,9 @@
         {% if not DEBUG %}
             {% include "layouts/partials/analytics.html" %}
         {% endif %}
+
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
         <script src="https://unpkg.com/vue@next"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         {% block scripts %}{% endblock %}

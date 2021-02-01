@@ -7,14 +7,15 @@ let minifyCss= require('gulp-minify-css');
 let uglifyJs = require('gulp-uglify');
 let concat = require('gulp-concat');
 
+
 sass.compiler = require('node-sass');
 
 
 let paths = {
   dist: 'web/static/dist',
   images: 'web/static/**/*.{JPG,jpg,png,gif}',
-  sass: 'web/static/assets/**/*.scss',
-  scripts: 'web/static/assets/**/*.js',
+  sass: 'web/static/src/**/*.scss',
+  scripts: 'web/static/src/**/*.js',
 };
 
 gulp.task('sass:prod', () => {
@@ -35,4 +36,7 @@ gulp.task('scripts:prod', () => {
     .pipe(gulp.dest(paths.dist))
 });
 
-gulp.task('default', gulp.series(['sass:prod', 'scripts:prod']));
+gulp.task('default', function (){
+  gulp.watch(paths.scripts, gulp.series(['scripts:prod']));
+  gulp.watch(paths.sass, gulp.series(['sass:prod']));
+});

@@ -13,69 +13,106 @@ body {
 	background: #fff;
 	font-family: "Lato", sans-serif !important;
 	font-style: normal;
+  font-weight: 300;
 	padding: 0;
 	margin: 0;
 }
-
-
-.transaction-form {
-	padding: 1.2em;
-
-	.logo {
-		width: 100px;
-		height: 100px;
-	}
-
-	.title {
-		font-size: 1.6rem;
-		font-weight: 300;
-	}
-	.description {
-		font-size: 1rem;
-		font-weight: 400;
-		color: #a4b0be;
-	}
-
-	.mdc-floating-label {
-		font-family: "Lato", sans-serif !important;
-
-		&.mdc-floating-label--float-above {
-			font-weight: bold;
-		}
-	}
-	.mdc-text-field__input {
-		font-family: "Lato", sans-serif !important;
-	}
-	.mdc-text-field-helper-text.has-error {
-		color: #e74c3c !important;
-		font-weight: bold;
-	}
+.material-icons {
+  padding: 0 1rem;
 }
 
+.transaction-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.transaction-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.transaction-help {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: center;
+}
+.transaction-form {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  form {
+    width: 100%
+  }
+  .logo-container {
+    text-align: center;
+    .logo {
+      border-radius: 50%;
+      border: 3px solid #ffffff;
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  .mdc-text-field {
+    width: 100%;
+  }
+  .form-field.has-error {
+    .error-feedback span {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #e74c3c;
+    }
+  }
+  .form-action {
+    text-align: center;
+  }
+  .form-title {
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+  }
+
+  .form-fields {
+    margin-bottom: 2rem;
+  }
+  .form-field {
+    margin-bottom: 1rem;
+  }
+  .form-actions {
+    text-align: center;
+  }
+  .button-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.transaction-message, .transaction-message b, .transaction-message a{
+  line-height: 1.5rem;
+}
+.transaction-message, .transaction-message a {
+  font-weight: 300;
+}
+.transaction-message b {
+  font-weight: 500;
+}
 footer {
 	font-size: 0.7rem;
 	text-align: center;
 	display: block;
-    position: absolute;
-    bottom: 0;
+  position: absolute;
+  bottom: 0;
 	width: 100%;
 	padding: 0.5rem 0;
-	.separator {
-		font-weight: bold;
-		padding: 0 0.3rem;
-	}
 	.rights {
-		color: #95a5a6;
-	}
-	.info, .info a, .rights a {
-		color: #34495e;
-		font-weight: bold;
-	}
-}
-
-.text-field-container {
-	width: 100%;
-	.text-field {
-		width: 100%;
+    font-size: 0.8rem;
+    text-align: center;
+    color: gray;
+    .project {
+      font-style: italic;
+      font-weight: bold;
+    }
 	}
 }

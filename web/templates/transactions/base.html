@@ -4,52 +4,49 @@
 {% block body_class %}text-center{% endblock %}
 
 {% block extra_styles %}
+  <link rel="stylesheet" href="{% static "dist/styles/transactions.css" %}">
 {% endblock %}
 
 {% block body_content %}
-    <div class="container" id="{% block app_id %}{% endblock %}">
+    <main class="container transaction-container" id="{% block app_id %}{% endblock %}">
+      <div class="transaction-form">
         <div class="row">
           <div class="col-4"></div>
           <div class="col-4">
-            <form style="width: 100%; margin-top: 5rem;">
-              <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
-                <img src="https://via.placeholder.com/150" alt="">
+            <form method="{% block form_method %}post{% endblock %}" action="{% block form_action %}.{% endblock %}">
+              <div class="logo-container">
+                <img src="{% static 'img/logo_light.png' %}" alt="Logo" class="logo">
               </div>
-
-              <h3 class="form-title" style="font-weight: 400; text-align: center;">
+              <h3 class="form-title {% block form_title_class %}{% endblock %}">
                 {% block form_title %}{% endblock %}
               </h3>
-
-              <div class="form-fields" style="margin-bottom: 2rem;">
-                {% block form_content %}{% endblock %}
-              </div>
-              <div class="button-container" style="display: flex; justify-content: center;">
-                <button type="button" class="mdc-button cancel">
-                  REENVIAR
-                </button>
-                <button class="mdc-button mdc-button--raised next">
-                  VALIDAR
-                </button>
-              </div>
-
-              <hr style="margin: 2rem 0;border: 1px dashed #efefef;">
-
-              {% include "layouts/partials/footer.html" %}
+              {% block form_content %}
+                {# this content changes by transaction #}
+              {% endblock %}
             </form>
           </div>
           <div class="col-4"></div>
         </div>
-    </div>
+      </div>
+    </main>
+    {% include "layouts/partials/footer.html" %}
 {% endblock %}
 {% block scripts %}
   <script>
-      window.onload = function() {
-        const inputs = [].map.call(document.querySelectorAll('.mdc-text-field'), function(el) {
-          return new mdc.textField.MDCTextField(el);
-        });
-        const buttons = [].map.call(document.querySelectorAll('.mdc-button'), function(el) {
-          return new mdc.ripple.MDCRipple(el);
-        });
+    let apiClient = null;
+    window.onload = function() {
+      const inputs = [].map.call(document.querySelectorAll('.mdc-text-field'), function(el) {
+        return new mdc.textField.MDCTextField(el);
+      });
+      const buttons = [].map.call(document.querySelectorAll('.mdc-button'), function(el) {
+        return new mdc.ripple.MDCRipple(el);
+      });
+      const csrftoken = Cookies.get('csrftoken');
+      apiClient = axios.create({
+        baseURL: '/api/v1',
+        timeout: 1000,
+        headers: {'X-CSRFToken': csrftoken}
+      });
     };
   </script>
 {% endblock %}

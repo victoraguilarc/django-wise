@@ -1,0 +1,8 @@
+{% load static i18n %}
+<p class="transaction-message">
+  {% blocktrans %}
+    This account is inactive, please contact
+    <a href="mailto:{{ project_support_email }}">{{ project_support_email }}</a>
+    for more details.
+  {% endblocktrans %}
+</p>

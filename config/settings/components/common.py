@@ -212,7 +212,8 @@ TOKEN_EXPIRATION_DAYS = env.int('DJANGO_TOKEN_EXPIRATION_DAYS', default=7)
 # https://docs.djangoproject.com/en/2.2/topics/security/
 
 SESSION_COOKIE_HTTPONLY = True
-CSRF_COOKIE_HTTPONLY = True
+# enable/disable the CSRF Token reading by the client-side
+CSRF_COOKIE_HTTPONLY = False
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 
@@ -238,7 +239,7 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
-PROJECT_NAME = 'Wise'
+PROJECT_NAME = 'Wise API'
 PROJECT_HOSTNAME = env('DJANGO_HOSTNAME', default='http://localhost:8000')
 PROJECT_AUTHOR = 'Support <{0}>'.format(PROJECT_SUPPORT_EMAIL)
 PROJECT_OWNER = 'Wise'
