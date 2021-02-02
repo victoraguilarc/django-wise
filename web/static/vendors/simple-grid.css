@@ -264,3 +264,6 @@ p {
 .mb-4 {
   margin-bottom: 2.5rem !important;
 }
+.color-white {
+  color: #fff !important;
+}

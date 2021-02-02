@@ -1,0 +1,21 @@
+{% extends "transactions/base.html" %}
+{% load static i18n %}
+
+{% block form_header %}
+  <h1 class="error-code">
+    {% block error_code %}{% endblock %}
+  </h1>
+{% endblock %}
+
+{% block form_content %}
+  <p class="transaction-message error-message">
+    {% block error_message %}
+    {% endblock %}
+  </p>
+  <div class="form-actions">
+    <a href="/" class="mdc-button mdc-button--raised mdc-ripple-upgraded">
+      {% trans 'Back to Home' %}&nbsp;
+    </a>
+  </div>
+{% endblock %}
+

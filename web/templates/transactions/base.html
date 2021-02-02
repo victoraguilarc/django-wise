@@ -14,9 +14,11 @@
           <div class="col-4"></div>
           <div class="col-4">
             <form method="{% block form_method %}post{% endblock %}" action="{% block form_action %}.{% endblock %}">
-              <div class="logo-container">
-                <img src="{% static 'img/logo_light.png' %}" alt="Logo" class="logo">
-              </div>
+              {% block form_header %}
+                <div class="logo-container">
+                  <img src="{% static 'img/logo_light.png' %}" alt="Logo" class="logo">
+                </div>
+              {% endblock %}
               <h3 class="form-title {% block form_title_class %}{% endblock %}">
                 {% block form_title %}{% endblock %}
               </h3>
@@ -29,7 +31,7 @@
         </div>
       </div>
     </main>
-    {% include "layouts/partials/footer.html" %}
+    {% include "transactions/partials/footer.html" %}
 {% endblock %}
 {% block scripts %}
   <script>

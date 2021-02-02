@@ -1,0 +1,12 @@
+{% extends "errors/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans 'Access Denied' %}{% endblock %}
+{% block form_title %}{% trans 'Access Denied!' %}{% endblock %}
+
+{% block error_code %}403{% endblock %}
+{% block error_message %}
+  {% blocktrans %}
+  You don't have enogh permissions to get this page, please, contact us at
+  {% endblocktrans %}
+{% endblock %}

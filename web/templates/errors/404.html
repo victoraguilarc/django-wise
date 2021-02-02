@@ -1,0 +1,12 @@
+{% extends "errors/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans 'Not Found' %}{% endblock %}
+{% block form_title %}{% trans 'Not Found!' %}{% endblock %}
+
+{% block error_code %}404{% endblock %}
+{% block error_message %}
+  {% blocktrans %}
+  Page not found, this resource don't exist or its under construction.
+  {% endblocktrans %}
+{% endblock %}

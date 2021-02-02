@@ -1,0 +1,14 @@
+{% extends "errors/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans 'Bad Request' %}{% endblock %}
+{% block form_title %}{% trans 'Bad Request!' %}{% endblock %}
+
+{% block error_code %}400{% endblock %}
+{% block error_message %}
+  {% blocktrans %}
+  The request noesn't have the minimum required to run this action.
+  {% endblocktrans %}
+{% endblock %}
+
+

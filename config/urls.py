@@ -45,10 +45,10 @@ if settings.DEBUG:
 
     # Pages & errors
     urlpatterns += [
-        path('400/', TemplateView.as_view(template_name='layouts/errors/400.html'), name='error-400'),
-        path('403/', TemplateView.as_view(template_name='layouts/errors/403.html'), name='error-403'),
-        path('404/', TemplateView.as_view(template_name='layouts/errors/404.html'), name='error-404'),
-        path('500/', TemplateView.as_view(template_name='layouts/errors/500.html'), name='error-500'),
+        path('400/', TemplateView.as_view(template_name='errors/400.html'), name='error-400'),
+        path('403/', TemplateView.as_view(template_name='errors/403.html'), name='error-403'),
+        path('404/', TemplateView.as_view(template_name='errors/404.html'), name='error-404'),
+        path('500/', TemplateView.as_view(template_name='errors/500.html'), name='error-500'),
     ]
 
     urlpatterns += [
