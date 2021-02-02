@@ -9,7 +9,7 @@ from faker.providers import misc, lorem
 from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.contrib.utils.files import generate_image
 from apps.accounts.tests.factories.user import UserFactory, generate_user_profile
-from apps.contrib.utils.testing.unit_tests import has_same_code, assert_validation_code
+from apps.contrib.utils.testing.unit_tests import assert_validation_code
 
 faker = Factory.create()
 faker.add_provider(misc)
@@ -72,7 +72,6 @@ class ProfileViewSetTests:
         profile['username'] = existent_user.username
 
         response = auth_api_client.put(self.profile_url, data=profile)
-        response_json = response.json()
         assert response.status_code == status.HTTP_400_BAD_REQUEST
         assert_validation_code(
             response_json=response.json(),

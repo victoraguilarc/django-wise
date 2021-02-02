@@ -5,6 +5,7 @@ from django.contrib.auth.backends import ModelBackend
 
 
 class SimpleEmailBackend(ModelBackend):
+    """"""
     def authenticate(self, request, username=None, password=None, **kwargs):
         UserModel = get_user_model()
 

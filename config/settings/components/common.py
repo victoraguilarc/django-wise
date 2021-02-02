@@ -9,7 +9,7 @@ For the full list of settings and their config, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
-from typing import Dict, List, Tuple, Union
+from typing import Tuple
 from os.path import join
 
 from config.settings.components import PROJECT_PATH, env
@@ -221,10 +221,6 @@ X_FRAME_OPTIONS = 'DENY'
 
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#Syntax
 REFERRER_POLICY = 'no-referrer'
-
-# https://github.com/adamchainz/django-feature-policy#setting
-FEATURE_POLICY: Dict[str, Union[str, List[str]]] = {}  # noqa: TAE002
-
 
 # Timeouts
 EMAIL_TIMEOUT = 5

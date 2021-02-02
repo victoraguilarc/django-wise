@@ -6,7 +6,7 @@ from django.views import defaults as default_views
 from django.views.generic import TemplateView
 from django.conf.urls.static import static
 
-from apps.contrib.views.errors import error_400, error_403, error_404, error_500
+from apps.contrib.views.errors import error400, error403, error404, error500
 
 from django.contrib import admin
 
@@ -66,7 +66,7 @@ if settings.DEBUG:
             path('__debug__/', include(debug_toolbar.urls)),
         ]
 else:
-    handler400 = error_400
-    handler403 = error_403
-    handler404 = error_404
-    handler500 = error_500
+    handler400 = error400
+    handler403 = error403
+    handler404 = error404
+    handler500 = error500

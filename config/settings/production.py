@@ -29,7 +29,7 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [  # noqa: F405
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
         ],
-     ),
+    ),
 ]
 
 # Password validation
@@ -53,28 +53,26 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Security
 # https://docs.djangoproject.com/en/2.2/topics/security/
+SECURE_HSTS_SECONDS = 31536000  # the same as Caddy has
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
 
-# SECURE_HSTS_SECONDS = 31536000  # the same as Caddy has
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-# SECURE_HSTS_PRELOAD = True
-
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = False
 
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 #
 #  STORAGE CONFIGURATION
-# ------------------------------------------------------------------------------
-
-INSTALLED_APPS += ('django_s3_storage', )  # noqa F405
+#
+INSTALLED_APPS += ('django_s3_storage', )  # noqa: F405
 
 # Boto3 can use an IAM role if the application is running on AWS
 # https://boto3.amazonaws.com/v1/documentation/api/latest/guide/iam-example-policies.html
 # This eliminates the need to use keys
-# AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
-# AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 
 # https://github.com/etianen/django-s3-storage
 AWS_S3_BUCKET_NAME = env('AWS_S3_BUCKET_NAME')
@@ -94,4 +92,3 @@ STATICFILES_STORAGE = 'django_s3_storage.storage.StaticS3Storage'
 AWS_S3_CUSTOM_DOMAIN = '{0}.s3.amazonaws.com'.format(AWS_S3_BUCKET_NAME)
 STATIC_URL = 'https://{0}/static/'.format(AWS_S3_CUSTOM_DOMAIN)
 MEDIA_URL = 'https://{0}/media/'.format(AWS_S3_CUSTOM_DOMAIN)
-

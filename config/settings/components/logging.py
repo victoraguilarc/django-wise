@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-import logging.config
+import logging.config  # noqa: WPS301
 
 # Logging
 # https://docs.djangoproject.com/en/2.2/topics/logging/

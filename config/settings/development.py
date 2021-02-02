@@ -7,7 +7,6 @@ SECURITY WARNING: don't run with debug turned on in production!
 """
 import os
 import socket
-import logging
 from typing import List
 
 from config.settings.components import env
@@ -24,9 +23,9 @@ INSTALLED_APPS += (
 )
 TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
 
-# Django debug toolbar:
+#
+#   D J A N G O   D E B U G   T O O L B A R
 # https://django-debug-toolbar.readthedocs.io
-
 MIDDLEWARE += (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     # https://github.com/bradmontgomery/django-querycount
@@ -35,15 +34,17 @@ MIDDLEWARE += (
 )
 
 
-# MAIL SETTINGS
-# ------------------------------------------------------------------------------
+#
+#   M A I L    S E T T I N G S
+#
 EMAIL_HOST, EMAIL_PORT = 'mailhog', 1025  # Work with MailHog
 DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL', default='Xiberty <info@xiberty.com>')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
-# DEBUGGING
-# ------------------------------------------------------------------------------
+#
+#   D E B U G G I N G
+#
 INTERNAL_IPS = ['127.0.0.1', '10.0.2.2']  # localhost IP, docker internal IP
 # tricks to have debug toolbar when developing with docker
 if os.environ.get('USE_DOCKER') == 'yes':
@@ -87,6 +88,7 @@ QUERYCOUNT = {
 CSP_SCRIPT_SRC = ("'self'", 'ajax.googleapis.com')
 CSP_IMG_SRC = ("'self'", 'data:')
 
-# TESTING
-# ------------------------------------------------------------------------------
+#
+#   T E s T I N G
+#
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'

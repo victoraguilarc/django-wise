@@ -7,5 +7,5 @@ Q_CLUSTER = {
     'workers': 2,
     'timeout': 180,
     'django_redis': 'default',
-    'save_limit': 5000
+    'save_limit': 5000,
 }
