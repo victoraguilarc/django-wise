@@ -24,8 +24,10 @@ class ProfileViewSetTests:
 
     def test_get_profile(self, auth_api_client, test_user):
         response = auth_api_client.get(self.profile_url)
+        user_profile = response.json()
+        required_keys = {'username', 'firstName', 'lastName', 'email', 'photo'}
+        assert user_profile.keys() & required_keys
         assert response.status_code == status.HTTP_200_OK
-        assert UserProfileSerializer(test_user).data == response.json()
 
     def test_get_profile_credentials_required(self, api_client):
         response = api_client.get(self.profile_url)
@@ -34,13 +36,13 @@ class ProfileViewSetTests:
     @classmethod
     def assert_profile(cls, response, new_profile):
         user_profile = response.json()
-        required_keys = {'username', 'first_name', 'last_name', 'email', 'photo'}
+        required_keys = {'username', 'firstName', 'lastName', 'email', 'photo'}
         has_required_keys = user_profile.keys() & required_keys
 
         assert has_required_keys
         assert new_profile['username'] == user_profile['username']
-        assert new_profile['first_name'] == user_profile['first_name']
-        assert new_profile['last_name'] == user_profile['last_name']
+        assert new_profile['firstName'] == user_profile['firstName']
+        assert new_profile['lastName'] == user_profile['lastName']
 
     def test_update_profile(self, auth_api_client):
         profile = generate_user_profile()

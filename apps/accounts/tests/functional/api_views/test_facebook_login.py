@@ -18,13 +18,13 @@ class FacebookLoginTests:
     def test_missing_token(self, api_client):
         response = api_client.post(self.facebook_login_url, {})
         response_json = response.json()
-        assert 'access_token' in response_json
-        assert response_json['access_token'][0]['code'] == 'required'
+        assert 'accessToken' in response_json
+        assert response_json['accessToken'][0]['code'] == 'required'
 
     def test_valid_token(self, api_client, test_user):
         allow(SessionService).process_facebook_token.and_return(test_user)
 
-        login_data = {'access_token': 'valid_token'}
+        login_data = {'accessToken': 'valid_token'}
         response = api_client.post(self.facebook_login_url, login_data)
         response_json = response.json()
 
@@ -36,7 +36,7 @@ class FacebookLoginTests:
         allow(SessionService).process_facebook_token.and_raise(
             NotAuthenticated(**INVALID_FACEBOOK_ACCESS_TOKEN)
         )
-        login_data = {'access_token': 'invalid_token'}
+        login_data = {'accessToken': 'invalid_token'}
         response = api_client.post(self.facebook_login_url, login_data)
         response_json = response.json()
 

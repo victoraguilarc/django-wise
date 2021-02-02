@@ -97,7 +97,7 @@ class PasswordActionsViewSetTests:
         assert response_json['code'] == response_codes.INVALID_TOKEN['code']
 
     def test_set_password__usable_password(self, auth_api_client):
-        data = {'password': self.new_test_password, 'confirm_password': self.new_test_password}
+        data = {'password': self.new_test_password, 'confirmPassword': self.new_test_password}
         response = auth_api_client.post(self.password_url, data)
         response_json = response.json()
 
@@ -113,7 +113,7 @@ class PasswordActionsViewSetTests:
         test_user.password = '!unusable_password'  # noqa
         test_user.save()
 
-        data = {'password': self.new_test_password, 'confirm_password': self.new_test_password}
+        data = {'password': self.new_test_password, 'confirmPassword': self.new_test_password}
         response = auth_api_client.post(self.password_url, data)
         response_json = response.json()
 
@@ -124,15 +124,15 @@ class PasswordActionsViewSetTests:
     def test_set_password__required_fields(self, auth_api_client):
         response = auth_api_client.post(self.password_url)
         response_json = response.json()
-        assert {'password', 'confirm_password'} <= set(response_json.keys())
+        assert {'password', 'confirmPassword'} <= set(response_json.keys())
         assert response_json['password'][0]['code'] == 'required'
-        assert response_json['confirm_password'][0]['code'] == 'required'
+        assert response_json['confirmPassword'][0]['code'] == 'required'
 
     def test_set_password__password_mismatch(self, auth_api_client, test_user):
         test_user.password = '!unusable_password'  # noqa
         test_user.save()
 
-        data = {'password': self.new_test_password, 'confirm_password': 'anything'}
+        data = {'password': self.new_test_password, 'confirmPassword': 'anything'}
         response = auth_api_client.post(self.password_url, data)
         response_json = response.json()
 
@@ -143,8 +143,8 @@ class PasswordActionsViewSetTests:
     def test_change_password(self, auth_api_client):
         data = {
             'password': TEST_PASSWORD,
-            'new_password': 'anything',
-            'confirm_password': 'anything',
+            'newPassword': 'anything',
+            'confirmPassword': 'anything',
         }
         response = auth_api_client.put(self.password_url, data)
         response_json = response.json()
@@ -158,16 +158,16 @@ class PasswordActionsViewSetTests:
         response_json = response.json()
 
         assert response.status_code == status.HTTP_400_BAD_REQUEST
-        assert {'password', 'new_password', 'confirm_password'} <= set(response_json.keys())
+        assert {'password', 'newPassword', 'confirmPassword'} <= set(response_json.keys())
         assert response_json['password'][0]['code'] == 'required'
-        assert response_json['new_password'][0]['code'] == 'required'
-        assert response_json['confirm_password'][0]['code'] == 'required'
+        assert response_json['newPassword'][0]['code'] == 'required'
+        assert response_json['confirmPassword'][0]['code'] == 'required'
 
     def test_change_password__credentials_required(self, api_client):
         data = {
             'password': TEST_PASSWORD,
-            'new_password': 'anything',
-            'confirm_password': 'anything',
+            'newPassword': 'anything',
+            'confirmPassword': 'anything',
         }
         response = api_client.put(self.profile_url, data)
         assert has_unauthorized(response)
@@ -175,8 +175,8 @@ class PasswordActionsViewSetTests:
     def test_change_password__wrong_current_password(self, auth_api_client):
         data = {
             'password': 'anything',
-            'new_password': 'anything',
-            'confirm_password': 'anything',
+            'newPassword': 'anything',
+            'confirmPassword': 'anything',
         }
         response = auth_api_client.put(self.password_url, data)
         response_json = response.json()
@@ -188,8 +188,8 @@ class PasswordActionsViewSetTests:
     def test_change_password__password_mismatch(self, auth_api_client):
         data = {
             'password': TEST_PASSWORD,
-            'new_password': 'anything',
-            'confirm_password': 'other_thing',
+            'newPassword': 'anything',
+            'confirmPassword': 'other_thing',
         }
         response = auth_api_client.put(self.password_url, data, is_authenticated=True)
         response_json = response.json()

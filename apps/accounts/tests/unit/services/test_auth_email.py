@@ -2,7 +2,7 @@
 import pytest
 
 from apps.accounts.models.choices import ActionCategory
-from apps.accounts.services.auth_email import AuthEmailService
+from apps.accounts.services.email_service import AuthEmailService
 from apps.contrib.utils.testing.unit_tests import mail_outbox
 from apps.accounts.tests.factories.pending_action import PendingActionFactory
 

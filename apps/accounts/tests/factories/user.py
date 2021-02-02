@@ -23,8 +23,8 @@ def generate_user_profile():
     return {
         'username': user_profile['username'],
         'email': user_profile['mail'],
-        'first_name': full_name[0],
-        'last_name': full_name[1],
+        'firstName': full_name[0],
+        'lastName': full_name[1],
         'password': user_password,
     }
 
