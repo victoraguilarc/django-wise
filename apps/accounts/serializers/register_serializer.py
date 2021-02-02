@@ -2,11 +2,10 @@
 
 from django.conf import settings
 from rest_framework import serializers
-from rest_framework.exceptions import ValidationError
 
-from apps.accounts import response_codes
+from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.accounts.models import User
-from apps.accounts.serializers.email import EmailSerializer
+from apps.accounts.serializers.email_serializer import EmailSerializer
 
 
 class RegisterSerializer(EmailSerializer):
@@ -21,5 +20,5 @@ class RegisterSerializer(EmailSerializer):
         if username:
             user_exists = User.objects.filter(username=username).exists()
             if user_exists or username in settings.USERNAME_BLACKLIST:
-                raise ValidationError(**response_codes.USERNAME_ALREDY_USED)
+                self.raise_exception(AccountsErrorCodes.USERNAME_ALREDY_USED)
         return username

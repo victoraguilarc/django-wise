@@ -2,10 +2,10 @@
 
 import pytest
 
-from apps.contrib.api.exceptions import SimpleValidationError
-from apps.accounts.response_codes import INVALID_TOKEN
+from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.accounts.tests.factories.pending_action import PendingActionFactory
 from apps.accounts.selectors.pending_action_selector import PendingActionSelector
+from apps.contrib.api.exceptions.base import APIBaseException
 
 
 @pytest.mark.django_db
@@ -23,10 +23,10 @@ class PendingActionSelectorTests:
 
     @staticmethod
     def test_get_by_token_not_found(test_pending_action_category):
-        with pytest.raises(SimpleValidationError) as exec_info:
+        with pytest.raises(APIBaseException) as exec_info:
             PendingActionSelector.get_by_token(
                 'anything',
                 test_pending_action_category,
             )
-        assert exec_info.value.detail.code == INVALID_TOKEN['code']
+        assert exec_info.value.detail.code == AccountsErrorCodes.INVALID_TOKEN.code
 

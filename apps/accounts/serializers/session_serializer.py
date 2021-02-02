@@ -2,7 +2,7 @@
 
 from rest_framework import serializers
 
-from apps.accounts.serializers.user_profile import UserProfileSerializer
+from apps.accounts.serializers.user_profile_serializer import UserProfileSerializer
 from apps.accounts.services.session_service import SessionService
 
 

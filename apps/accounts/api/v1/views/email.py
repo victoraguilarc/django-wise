@@ -1,17 +1,18 @@
 # -*- coding: utf-8 -*-
 
 from rest_framework import status
+from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 from rest_framework.permissions import AllowAny, IsAuthenticated
 
-from apps.accounts import response_codes
-from apps.contrib.api.responses import DoneResponse
+from apps.accounts.api.account_responses import AccountsResponses
 from apps.accounts.models.choices import ActionCategory
-from apps.accounts.serializers.login import UsernameOrEmailSerializer
-from apps.accounts.serializers.token import TokenSerializer
+from apps.accounts.serializers.login_serializer import UsernameOrEmailSerializer
+from apps.accounts.serializers.token_serializer import TokenSerializer
 from apps.accounts.services.auth_service import AuthService
 from apps.accounts.selectors.user_selector import UserSelector
 from apps.accounts.selectors.pending_action_selector import PendingActionSelector
+from apps.contrib.api.exceptions.base import APIBadRequest
 
 
 class EmailActionsViewSet(ViewSet):
@@ -33,13 +34,13 @@ class EmailActionsViewSet(ViewSet):
         user = UserSelector.get_by_username_or_email(username_or_email)
 
         if user.is_active:
-            return DoneResponse(
-                **response_codes.EMAIL_VERIFIED,
-                status=status.HTTP_400_BAD_REQUEST,
+            raise APIBadRequest(
+                code=AccountsResponses.EMAIL_VERIFIED.get('code'),
+                detail=AccountsResponses.EMAIL_VERIFIED.get('message'),
             )
         else:
             AuthService.send_confirmation_email(user)
-            return DoneResponse(**response_codes.CONFIRMATION_EMAIL_SENT)
+            return Response(AccountsResponses.CONFIRMATION_EMAIL_SENT)
 
     def email_confirmation(self, request):
         """Confirms an email."""
@@ -51,4 +52,5 @@ class EmailActionsViewSet(ViewSet):
             category=ActionCategory.CONFIRM_EMAIL.value,
         )
         AuthService.confirm_email(pending_action)
-        return DoneResponse(**response_codes.EMAIL_VERIFIED)
+
+        return Response(AccountsResponses.EMAIL_VERIFIED)

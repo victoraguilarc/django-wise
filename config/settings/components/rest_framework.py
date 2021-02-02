@@ -6,7 +6,7 @@ from config.settings.components import env
 
 CORS_ORIGIN_ALLOW_ALL = True
 REST_FRAMEWORK = {
-    'EXCEPTION_HANDLER': 'apps.contrib.api.exceptions.formatted_exception_handler',
+    'EXCEPTION_HANDLER': 'apps.contrib.api.exceptions.error_handler.formatted_error_handler',
     'NON_FIELD_ERRORS_KEY': 'errors',
     'DEFAULT_METADATA_CLASS': 'rest_framework.metadata.SimpleMetadata',
     'DEFAULT_RENDERER_CLASSES': (

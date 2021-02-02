@@ -4,11 +4,13 @@ from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 from rest_framework.serializers import Serializer
 
-from apps.accounts import response_codes
+from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.accounts.models import User
-from apps.accounts.serializers.login import UsernameOrEmailSerializer
+from apps.accounts.serializers.login_serializer import UsernameOrEmailSerializer
 
 from django.utils.translation import ugettext_lazy as _
+
+from apps.contrib.api.exceptions.base import SerializerFieldExceptionMixin
 
 PASSWORD_MAX_LENGTH = User._meta.get_field('password').max_length  # noqa: WPS437
 
@@ -19,7 +21,7 @@ user_read_only_fields = (
 )
 
 
-class CheckValidPasswordMixin(serializers.Serializer):
+class CheckValidPasswordMixin(SerializerFieldExceptionMixin, serializers.Serializer):
     """Validates a password."""
 
     password = serializers.CharField(
@@ -35,11 +37,11 @@ class CheckValidPasswordMixin(serializers.Serializer):
 
     def validate_password(self, password):
         if not self.user.check_password(password):
-            raise ValidationError(**response_codes.INVALID_PASSWORD)
+            self.raise_exception(AccountsErrorCodes.INVALID_PASSWORD)
         return password
 
 
-class PasswordSetSerializer(serializers.Serializer):
+class PasswordSetSerializer(SerializerFieldExceptionMixin, serializers.Serializer):
     """Validates a password and its confirmation."""
 
     password = serializers.CharField(
@@ -59,13 +61,13 @@ class PasswordSetSerializer(serializers.Serializer):
 
     def validate_password(self, password):   # noqa: D102
         if self.user.has_usable_password():
-            raise ValidationError(**response_codes.USER_HAS_PASSWORD)
+            self.raise_exception(AccountsErrorCodes.USER_HAS_PASSWORD)
         return password
 
     def validate(self, attrs):  # noqa: D102
         attrs = super().validate(attrs)
         if attrs['password'] != attrs['confirm_password']:
-            raise ValidationError(**response_codes.PASSWORD_MISTMATCH)
+            self.raise_exception(AccountsErrorCodes.PASSWORD_MISTMATCH)
         return attrs
 
 
@@ -86,7 +88,7 @@ class PasswordUpdateSerializer(CheckValidPasswordMixin):
         attrs = super().validate(attrs)
         # it's repeated for readability
         if attrs['new_password'] != attrs['confirm_password']:
-            raise ValidationError(**response_codes.PASSWORD_MISTMATCH)
+            self.raise_exception(AccountsErrorCodes.PASSWORD_MISTMATCH)
         return attrs
 
 

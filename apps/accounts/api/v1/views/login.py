@@ -3,8 +3,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from apps.accounts.serializers.login import LoginSerializer
-from apps.accounts.serializers.session import SessionSerializer, AccessTokenSerializer, GoogleTokenSerializer
+from apps.accounts.serializers.login_serializer import LoginSerializer
+from apps.accounts.serializers.session_serializer import SessionSerializer, AccessTokenSerializer, GoogleTokenSerializer
 from apps.accounts.selectors.user_selector import UserSelector
 from apps.accounts.services.session_service import SessionService
 

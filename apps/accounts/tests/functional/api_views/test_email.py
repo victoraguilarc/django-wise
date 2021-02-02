@@ -5,10 +5,12 @@ from doubles import allow, expect
 from django.urls import reverse
 from rest_framework import status
 
-from apps.accounts import response_codes
+from apps.accounts.api.account_responses import AccountsResponses
+from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.accounts.models.choices import ActionCategory
 from apps.accounts.services.auth_service import AuthService
 from apps.accounts.tests.factories.pending_action import PendingActionFactory
+from apps.contrib.utils.testing.unit_tests import assert_validation_code, assert_error_code
 
 
 @pytest.mark.django_db
@@ -25,23 +27,24 @@ class EmailActionsViewSetTests:
         response_json = response.json()
         assert response.status_code == status.HTTP_200_OK
         assert {'code', 'message'} <= set(response_json)
-        assert response_json['code'] == response_codes.CONFIRMATION_EMAIL_SENT['code']
+        assert response_json['code'] == AccountsResponses.CONFIRMATION_EMAIL_SENT['code']
 
     def test_email_confirmation_required_fields(self, api_client):
         response = api_client.post(self.email_confirmation_url)
-        response_json = response.json()
-
         assert response.status_code == status.HTTP_400_BAD_REQUEST
-        assert 'token' in response_json
-        assert response_json['token'][0]['code'] == 'required'
+        assert_validation_code(
+            response_json=response.json(),
+            attribute='token',
+            code='required',
+        )
 
     def test_email_confirmation_invalid_token(self, api_client):
         response = api_client.post(self.email_confirmation_url, data={'token': 'anything'})
-        response_json = response.json()
-
-        assert response.status_code == status.HTTP_400_BAD_REQUEST
-        assert {'code', 'message'} <= set(response.json())
-        assert response_json['code'] == response_codes.INVALID_TOKEN['code']
+        assert response.status_code == status.HTTP_401_UNAUTHORIZED
+        assert_error_code(
+            response_json=response.json(),
+            code=AccountsErrorCodes.INVALID_TOKEN.code,
+        )
 
     def test_email_confirmation_valid_token(self, api_client):
         allow(AuthService).confirm_email.and_return(True)
@@ -50,10 +53,9 @@ class EmailActionsViewSetTests:
         pending_action = PendingActionFactory(category=ActionCategory.CONFIRM_EMAIL.value)
         response = api_client.post(self.email_confirmation_url, data={'token': pending_action.token})
         response_json = response.json()
-
         assert response.status_code == status.HTTP_200_OK
-        assert {'code', 'message'} <= set(response.json())
-        assert response_json['code'] == response_codes.EMAIL_VERIFIED['code']
+        assert {'code', 'message'} <= set(response_json)
+        assert response_json['code'] == AccountsResponses.EMAIL_VERIFIED['code']
 
     def test_email_confirmation_request_username(self, api_client, test_user):
         test_user.is_active = False
@@ -70,38 +72,42 @@ class EmailActionsViewSetTests:
             self.email_confirmation_request_url,
             data={'user': test_user.email}
         )
-        response_json = response.json()
-
         assert response.status_code == status.HTTP_400_BAD_REQUEST
-        assert {'code', 'message'} <= set(response_json)
-        assert response_json['code'] == response_codes.EMAIL_VERIFIED['code']
+        assert_error_code(
+            response_json=response.json(),
+            code=AccountsResponses.EMAIL_VERIFIED['code'],
+        )
 
     def test_email_confirmation_request_required_fields(self, api_client):
         response = api_client.post(self.email_confirmation_request_url)
         response_json = response.json()
 
         assert response.status_code == status.HTTP_400_BAD_REQUEST
-        assert 'user' in response_json
-        assert response_json['user'][0]['code'] == 'required'
+        assert_validation_code(
+            response_json=response.json(),
+            attribute='user',
+            code='required',
+        )
 
     def test_email_confirmation_request_unexistent_user(self, api_client):
         response = api_client.post(
             self.email_confirmation_request_url,
             data={'user': 'anything'}
         )
-        response_json = response.json()
-
         assert response.status_code == status.HTTP_404_NOT_FOUND
-        assert {'code', 'message'} <= set(response_json)
-        assert response_json['code'] == response_codes.USER_NOT_FOUND['code']
+        assert_error_code(
+            response_json=response.json(),
+            code=AccountsErrorCodes.USER_NOT_FOUND.code,
+        )
 
     def test_email_confirmation_request_confirmated_email(self, api_client, test_user):
         response = api_client.post(
             self.email_confirmation_request_url,
             data={'user': test_user.email},
         )
-        response_json = response.json()
         assert response.status_code == status.HTTP_400_BAD_REQUEST
-        assert {'code', 'message'} <= set(response_json)
-        assert response_json['code'] == response_codes.EMAIL_VERIFIED['code']
+        assert_error_code(
+            response_json=response.json(),
+            code=AccountsResponses.EMAIL_VERIFIED['code'],
+        )
 

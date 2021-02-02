@@ -1,20 +1,18 @@
 
 # -*- coding: utf-8 -*-
+
 import json
 import pytest
 import requests_mock
 from doubles import allow
 from google.oauth2 import id_token
 from rest_framework import status
-from rest_framework.exceptions import NotAuthenticated
 
+from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.accounts.models import User
-from apps.accounts.response_codes import (
-    INACTIVE_ACCOUNT, INVALID_CREDENTIALS, INVALID_GOOGLE_TOKEN_ID, INVALID_GOOGLE_TOKEN_ISSUER,
-    INVALID_FACEBOOK_ACCESS_TOKEN
-)
 from apps.accounts.services.user_service import UserService
 from apps.accounts.services.session_service import SessionService
+from apps.contrib.api.exceptions.base import APIBaseException
 
 
 @pytest.mark.django_db
@@ -36,17 +34,17 @@ class SessionServiceTests:
         allow(id_token).verify_oauth2_token.and_return({
             'iss': 'https://any.server',
         })
-        with pytest.raises(NotAuthenticated) as exec_info:
+        with pytest.raises(APIBaseException) as exec_info:
             SessionService.process_google_token('valid_token')
-        assert exec_info.value.detail.code == INVALID_GOOGLE_TOKEN_ISSUER['code']
+        assert exec_info.value.detail.code == AccountsErrorCodes.INVALID_GOOGLE_TOKEN_ISSUER.code
 
     @staticmethod
     def test_process_google_token_invalid_token():
         allow(id_token).verify_oauth2_token.and_raise(ValueError('Token Error'))
 
-        with pytest.raises(NotAuthenticated) as exec_info:
+        with pytest.raises(APIBaseException) as exec_info:
             SessionService.process_google_token('valid_token')
-        assert exec_info.value.detail.code == INVALID_GOOGLE_TOKEN_ID['code']
+        assert exec_info.value.detail.code == AccountsErrorCodes.INVALID_GOOGLE_TOKEN_ID.code
 
     @staticmethod
     def test_process_facebook_valid_access_token(test_user):
@@ -77,9 +75,9 @@ class SessionServiceTests:
                 text=json.dumps({'error': 'facebook_raised_error'}),
                 status_code=status.HTTP_200_OK,
             )
-            with pytest.raises(NotAuthenticated) as exec_info:
+            with pytest.raises(APIBaseException) as exec_info:
                 SessionService.process_facebook_token(access_token)
-            assert exec_info.value.detail.code == INVALID_FACEBOOK_ACCESS_TOKEN['code']
+            assert exec_info.value.detail.code == AccountsErrorCodes.INVALID_FACEBOOK_ACCESS_TOKEN.code
 
     @staticmethod
     def test_process_facebook_token_invalid_access_token_from_format(test_user):
@@ -90,9 +88,9 @@ class SessionServiceTests:
                 text='',
                 status_code=status.HTTP_200_OK,
             )
-            with pytest.raises(NotAuthenticated) as exec_info:
+            with pytest.raises(APIBaseException) as exec_info:
                 SessionService.process_facebook_token(access_token)
-            assert exec_info.value.detail.code == INVALID_FACEBOOK_ACCESS_TOKEN['code']
+            assert exec_info.value.detail.code == AccountsErrorCodes.INVALID_FACEBOOK_ACCESS_TOKEN.code
 
     @staticmethod
     def test_make_user_session(test_user):
@@ -110,13 +108,13 @@ class SessionServiceTests:
 
     @staticmethod
     def test_validate_session_invalid_credentials(test_user):
-        with pytest.raises(NotAuthenticated) as exec_info:
+        with pytest.raises(APIBaseException) as exec_info:
             SessionService.validate_session(None, 'new_password')
-        assert exec_info.value.detail.code == INVALID_CREDENTIALS['code']
+        assert exec_info.value.detail.code == AccountsErrorCodes.INVALID_CREDENTIALS.code
 
-        with pytest.raises(NotAuthenticated) as exec_info:
+        with pytest.raises(APIBaseException) as exec_info:
             SessionService.validate_session(test_user, 'new_password')
-        assert exec_info.value.detail.code == INVALID_CREDENTIALS['code']
+        assert exec_info.value.detail.code == AccountsErrorCodes.INVALID_CREDENTIALS.code
 
     @staticmethod
     def test_validate_session_inactive_account(test_user):
@@ -125,6 +123,6 @@ class SessionServiceTests:
         test_user.is_active = False
         test_user.save()
 
-        with pytest.raises(NotAuthenticated) as exec_info:
+        with pytest.raises(APIBaseException) as exec_info:
             SessionService.validate_session(test_user, plain_password)
-        assert exec_info.value.detail.code == INACTIVE_ACCOUNT['code']
+        assert exec_info.value.detail.code == AccountsErrorCodes.INACTIVE_ACCOUNT.code

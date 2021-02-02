@@ -6,15 +6,12 @@ from json import JSONDecodeError
 from django.conf import settings
 from google.oauth2 import id_token
 from google.auth.transport import requests as google_requests
-from rest_framework.exceptions import NotAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
 
+from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.accounts.models import User
-from apps.accounts.response_codes import (
-    INACTIVE_ACCOUNT, INVALID_CREDENTIALS, INVALID_REFRESH_TOKEN, INVALID_GOOGLE_TOKEN_ID, INVALID_GOOGLE_TOKEN_ISSUER,
-    INVALID_FACEBOOK_ACCESS_TOKEN
-)
+
 from apps.accounts.services.user_service import UserService
 
 
@@ -43,7 +40,7 @@ class SessionService(object):
             )
 
             if account_info.get('iss') != cls.GOOGLE_ACCOUNTS_URL:
-                raise NotAuthenticated(**INVALID_GOOGLE_TOKEN_ISSUER)
+                raise AccountsErrorCodes.INVALID_GOOGLE_TOKEN_ISSUER
 
             return UserService.create_or_update_for_social_networks(
                 email=account_info.get('email'),
@@ -52,7 +49,7 @@ class SessionService(object):
             )
 
         except (JSONDecodeError, TypeError, ValueError):
-            raise NotAuthenticated(**INVALID_GOOGLE_TOKEN_ID)
+            raise AccountsErrorCodes.INVALID_GOOGLE_TOKEN_ID
 
     @classmethod
     def make_facebook_profile_url(cls, access_token):
@@ -66,7 +63,7 @@ class SessionService(object):
             user_data = response.json()
 
             if 'error' in user_data:
-                raise NotAuthenticated(**INVALID_FACEBOOK_ACCESS_TOKEN)
+                raise AccountsErrorCodes.INVALID_FACEBOOK_ACCESS_TOKEN
 
             return UserService.create_or_update_for_social_networks(
                 email=user_data.get('email'),
@@ -74,7 +71,7 @@ class SessionService(object):
                 last_name=user_data.get('last_name'),
             )
         except (ValueError, KeyError, TypeError):
-            raise NotAuthenticated(**INVALID_FACEBOOK_ACCESS_TOKEN)
+            raise AccountsErrorCodes.INVALID_FACEBOOK_ACCESS_TOKEN
 
     @classmethod
     def make_user_session(cls, user: User) -> dict:
@@ -88,11 +85,10 @@ class SessionService(object):
     @classmethod
     def validate_session(cls, user, plain_password):
         if user is None or (user and not user.check_password(plain_password)):
-            raise NotAuthenticated(**INVALID_CREDENTIALS)
+            raise AccountsErrorCodes.INVALID_CREDENTIALS
 
         if not user.is_active:
-            raise NotAuthenticated(**INACTIVE_ACCOUNT)
-
+            raise AccountsErrorCodes.INACTIVE_ACCOUNT
         return True
 
     @classmethod
@@ -100,5 +96,4 @@ class SessionService(object):
         try:
             RefreshToken(refresh_token).blacklist()
         except TokenError:
-            raise NotAuthenticated(**INVALID_REFRESH_TOKEN)
-
+            raise AccountsErrorCodes.INVALID_REFRESH_TOKEN

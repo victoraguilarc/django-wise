@@ -1,17 +1,20 @@
 # -*- coding: utf-8 -*-
-
+from rest_framework import status
 from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.response import Response
 
-from apps.accounts import response_codes
+from apps.accounts.api.account_responses import AccountsResponses
 from apps.contrib.api.viewsets import PermissionViewSet
-from apps.contrib.api.responses import DoneResponse
 from apps.accounts.models.choices import ActionCategory
-from apps.accounts.serializers.password import (
-    PasswordSetSerializer, PasswordResetSerializer, PasswordUpdateSerializer, PasswordResetConfirmSerializer
+from apps.accounts.serializers.password_serializer import (
+    PasswordSetSerializer,
+    PasswordResetSerializer,
+    PasswordUpdateSerializer,
+    PasswordResetConfirmSerializer
 )
 from apps.accounts.services.email_service import AuthEmailService
 from apps.accounts.selectors.user_selector import UserSelector
-from apps.accounts.serializers.user_profile import UserProfileSerializer
+from apps.accounts.serializers.user_profile_serializer import UserProfileSerializer
 from apps.accounts.services.password_service import PasswordService
 from apps.accounts.selectors.pending_action_selector import PendingActionSelector
 
@@ -39,7 +42,7 @@ class PasswordActionsViewSet(PermissionViewSet):
         plain_password = serializer.validated_data['password']
         PasswordService.set_pasword(request.user, plain_password)
 
-        return DoneResponse(**response_codes.PASSWORD_ADDED)
+        return Response(AccountsResponses.PASSWORD_ADDED, status=status.HTTP_201_CREATED)
 
     def update_password(self, request):
         """Updates the useer passwrod."""
@@ -53,7 +56,7 @@ class PasswordActionsViewSet(PermissionViewSet):
         PasswordService.set_pasword(request.user, new_plain_password)
         update_session_auth_hash(request, request.user)
 
-        return DoneResponse(**response_codes.PASSWORD_UPDATED)
+        return Response(AccountsResponses.PASSWORD_UPDATED)
 
     def reset_password(self, request):
         """Request a password reset."""
@@ -67,7 +70,7 @@ class PasswordActionsViewSet(PermissionViewSet):
         pending_action = PasswordService.perform_reset_password(user)
         AuthEmailService.send_reset_password(pending_action)
 
-        return DoneResponse(**response_codes.RESET_PASSWORD_SENT)
+        return Response(AccountsResponses.RESET_PASSWORD_SENT)
 
     def reset_password_confirm(self, request):
         """Confirms a password reset."""
@@ -83,4 +86,4 @@ class PasswordActionsViewSet(PermissionViewSet):
         )
         PasswordService.confirm_reset_password(pending_action, plain_password)
 
-        return DoneResponse(**response_codes.PASSWORD_UPDATED)
+        return Response(AccountsResponses.PASSWORD_UPDATED)

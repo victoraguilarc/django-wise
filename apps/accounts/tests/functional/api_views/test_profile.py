@@ -6,11 +6,10 @@ from django.urls import reverse
 from rest_framework import status
 from faker.providers import misc, lorem
 
+from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.contrib.utils.files import generate_image
-from apps.accounts.response_codes import USERNAME_UNAVAILABLE
 from apps.accounts.tests.factories.user import UserFactory, generate_user_profile
-from apps.contrib.utils.testing.unit_tests import has_same_code
-from apps.accounts.serializers.user_profile import UserProfileSerializer
+from apps.contrib.utils.testing.unit_tests import has_same_code, assert_validation_code
 
 faker = Factory.create()
 faker.add_provider(misc)
@@ -75,5 +74,8 @@ class ProfileViewSetTests:
         response = auth_api_client.put(self.profile_url, data=profile)
         response_json = response.json()
         assert response.status_code == status.HTTP_400_BAD_REQUEST
-        assert 'username' in response_json
-        assert has_same_code(response_json['username'][0], USERNAME_UNAVAILABLE)
+        assert_validation_code(
+            response_json=response.json(),
+            attribute='username',
+            code=AccountsErrorCodes.USERNAME_UNAVAILABLE.code,
+        )

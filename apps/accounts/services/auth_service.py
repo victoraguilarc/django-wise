@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from apps.contrib.utils.strings import get_uuid
 from apps.accounts.models.choices import ActionCategory
-from apps.accounts.serializers.email import EmailSerializer
+from apps.accounts.serializers.email_serializer import EmailSerializer
 from apps.accounts.models.pending_action import PendingAction
 from apps.accounts.services.email_service import AuthEmailService
 

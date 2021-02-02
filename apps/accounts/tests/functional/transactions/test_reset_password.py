@@ -32,7 +32,6 @@ class ResetPasswordTests:
         assert isinstance(response.context['pending_action'], PendingAction)
         assert response.context['pending_action'] == pending_action
 
-
     def test_get_invalid_token(self, client):
         response = client.get(self.make_reset_password_url('invalid_token'))
         assert response.status_code == status.HTTP_200_OK

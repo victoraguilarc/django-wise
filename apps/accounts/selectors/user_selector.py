@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from django.db.models import Q
-from rest_framework.exceptions import NotFound
 
-from apps.accounts.models import User, PhoneDevice
-from apps.accounts.response_codes import USER_NOT_FOUND
+from apps.accounts.api.error_codes import AccountsErrorCodes
+from apps.accounts.models import User
 
 
 class UserSelector:
@@ -18,4 +17,4 @@ class UserSelector:
             _filter = Q(username=user_or_email) | Q(email=user_or_email)
             return User.objects.get(_filter)
         except User.DoesNotExist:
-            raise NotFound(**USER_NOT_FOUND)
+            raise AccountsErrorCodes.USER_NOT_FOUND
