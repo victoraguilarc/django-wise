@@ -1,19 +1,15 @@
 repos:
 - repo: local
   hooks:
-   - id: make-test
-     name: Running tests
-     entry: ls
-     language: system
-#  - id: make-test
-#    name: Running tests
-#    entry: make test
-#    language: system
-#  - id: make-isort
-#    name: Cleaning imports
-#    entry: make isort
-#    language: system
-#  - id: make-lint
-#    name: Linting code
-#    entry: make lint
-#    language: system
+  - id: make-test
+    name: Running tests
+    entry: make test
+    language: system
+  - id: make-isort
+    name: Cleaning imports
+    entry: make isort
+    language: system
+  - id: make-lint
+    name: Linting code
+    entry: make lint
+    language: system
