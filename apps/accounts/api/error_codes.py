@@ -1,17 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from django.utils.translation import ugettext_lazy as _
-
 from apps.contrib.api.exceptions.base import (
-    APIAuthenticationFailed,
-    APINotAuthenticated,
-    APINotFound,
-    APIBadRequest,
-    APIPermissionDenied,
+    APINotFound, APIBadRequest, APINotAuthenticated, APIPermissionDenied, APIAuthenticationFailed,
 )
+
+from django.utils.translation import ugettext_lazy as _
 
 
 class AccountsErrorCodes(object):
+    """These are all common account error codes."""
+
     # >> Authentication
 
     INVALID_GOOGLE_TOKEN_ID = APIAuthenticationFailed(

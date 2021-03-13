@@ -5,5 +5,6 @@ from django.views.generic import TemplateView
 
 
 class PhoneVerificationView(LoginRequiredMixin, TemplateView):
-    """Process a password reset."""
+    """Processes a password reset."""
+
     template_name = 'transactions/phone_verification.html'

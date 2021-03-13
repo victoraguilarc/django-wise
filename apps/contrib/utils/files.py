@@ -44,4 +44,3 @@ def clean_static_url(file_url):
         file_url=file_url,
     )
     return url if settings.DEBUG else file_url
-

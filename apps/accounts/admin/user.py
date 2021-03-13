@@ -22,9 +22,7 @@ class UserChangeForm(UserChangeFormBase):
 class UserCreationForm(UserCreationFormBase):
     """Overrides the user creation form."""
 
-    email = forms.EmailField(
-        label=_('Email'),
-    )
+    email = forms.EmailField(label=_('Email'))
 
     error_message = UserCreationFormBase.error_messages.update({
         'duplicate_username': 'This username has already been taken.',
@@ -49,13 +47,13 @@ class UserAdmin(AuthUserAdmin):
     add_form = UserCreationForm
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
-        (_('Personal Information'), {'fields': ('first_name', 'last_name', 'email', 'photo', 'phone_number', 'lang',)}),
-        (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions',)}),
+        (_('Personal Information'), {'fields': ('first_name', 'last_name', 'email', 'photo', 'phone_number', 'lang')}),
+        (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
     )
     add_fieldsets = (
         (None, {
-            'classes': ('wide', 'full',),
-            'fields': ('username', 'password1', 'password2', 'email',),
+            'classes': ('wide', 'full'),
+            'fields': ('username', 'password1', 'password2', 'email'),
         }),
     )
     list_display = [
@@ -68,4 +66,3 @@ class UserAdmin(AuthUserAdmin):
         'is_superuser',
         'lang',
     ]
-

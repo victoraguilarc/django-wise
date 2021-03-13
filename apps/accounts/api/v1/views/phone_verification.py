@@ -6,12 +6,13 @@ from rest_framework.permissions import IsAuthenticated
 
 from apps.accounts.services.one_time_service import OTPService
 from apps.accounts.serializers.phone_verification_serializer import (
-    PhoneVerificationSerializer, PendingPhoneVerificationSerializer, RequestPhoneVerificationSerializer
+    PhoneVerificationSerializer, PendingPhoneVerificationSerializer, RequestPhoneVerificationSerializer,
 )
 
 
 class PhoneVerification(APIView):
     """Process a google token_id login."""
+
     permission_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
@@ -20,7 +21,8 @@ class PhoneVerification(APIView):
         serializer.is_valid(raise_exception=True)
         phone_number = str(serializer.validated_data.get('phone_number'))
         pending_action = OTPService.request_code_verification(
-            user=request.user, phone_number=phone_number,
+            user=request.user,
+            phone_number=phone_number,
         )
         return Response(PendingPhoneVerificationSerializer(pending_action).data)
 

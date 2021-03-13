@@ -70,13 +70,12 @@ class User(AbstractUser):
         processors=[ResizeToFill(350, 350)],
         format='PNG',
         options={'quality': 80},
-        blank=True,
-        null=True,
+        blank=True, null=True,
     )
 
     phone_number = PhoneNumberField(
         verbose_name=_('Phone Number'),
-        null=True, blank=True
+        null=True, blank=True,
     )
 
     lang = models.CharField(

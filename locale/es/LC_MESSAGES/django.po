@@ -218,7 +218,7 @@ msgstr ""
 
 #: apps/accounts/response_codes.py:68
 msgid "User not Found"
-msgstr ""
+msgstr "Usuario no encontrado"
 
 #: apps/accounts/response_codes.py:73
 msgid "This email is already being used."

@@ -10,6 +10,7 @@ class PasswordService(object):
 
     @classmethod
     def perform_reset_password(cls, user: User) -> PendingAction:
+        """Process pending action to reset password."""
         pending_action, created = PendingAction.objects.get_or_create(
             user=user,
             category=ActionCategory.RESET_PASSWORD,
@@ -24,11 +25,12 @@ class PasswordService(object):
 
     @classmethod
     def confirm_reset_password(cls, pending_action: PendingAction, plain_password: str):
-        pending_action.user.set_password(plain_password)
+        """Configure a password for a user and deletes the pending action."""
+        cls.set_pasword(pending_action.user, plain_password)
         pending_action.delete()
 
     @classmethod
     def set_pasword(cls, user: User, plain_password: str) -> None:
+        """Configures a user password."""
         user.set_password(plain_password)
         user.save()
-

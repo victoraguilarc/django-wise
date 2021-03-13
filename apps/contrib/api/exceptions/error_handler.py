@@ -1,23 +1,28 @@
 # -*- coding: utf-8 -*-
 
 from django.conf import settings
-from rest_framework.exceptions import APIException
 from rest_framework.views import exception_handler
+from rest_framework.exceptions import APIException
 from rest_framework_simplejwt.exceptions import InvalidToken, AuthenticationFailed
 
 from apps.contrib.api.error_codes import ErrorCodes
 from apps.contrib.api.exceptions.base import APIBadRequest
+
 from django.utils.translation import ugettext_lazy as _
 
 
 class ThirdPartyExceptionNormalizer(object):
     """
+    This class is a Auth Exception utility.
+
     Some libraries like Simple JWT raises their own exceptions,
     We are catching them here and raising our own exceptions intead.
-    all to keep the same format of errors
+    all to keep the same format of errors.
     """
+
     @classmethod
     def parse(cls, exc):
+        """Returns an own managed exception insted JWT third exceptions."""
         new_exc = exc
         if isinstance(exc, InvalidToken):
             return ErrorCodes.INVALID_TOKEN
@@ -27,14 +32,17 @@ class ThirdPartyExceptionNormalizer(object):
 
 
 def get_logic_errors_key():
+    """Returns the standar error key."""
     return settings.REST_FRAMEWORK.get('NON_FIELD_ERRORS_KEY', 'errors')
 
 
 def get_validation_errors_key():
+    """Returns the standar validation key."""
     return settings.REST_FRAMEWORK.get('VALIDATION_ERRORS_KEY', 'validation')
 
 
 def format_error_response(data: dict or list):
+    """This formats the error in a standar format."""
     if isinstance(data, dict) and 'code' in data and 'message' in data:
         data = [data]
     response = {}
@@ -45,7 +53,10 @@ def format_error_response(data: dict or list):
         response[validation_key] = None
     else:
         validation_error = APIBadRequest(code='bad_request', detail=_('There are validation errors in the request'))
-        response[errors_key] = data.pop(errors_key) if errors_key in data else [validation_error.json()]
+        if errors_key in data:
+            response[errors_key] = data.pop(errors_key)
+        else:
+            response[errors_key] = [validation_error.json()]
         response[validation_key] = data.copy()
     return response
 

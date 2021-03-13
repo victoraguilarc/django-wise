@@ -1,18 +1,17 @@
 # -*- coding: utf-8 -*-
 
-from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 from rest_framework.permissions import AllowAny, IsAuthenticated
 
-from apps.accounts.api.account_responses import AccountsResponses
 from apps.accounts.models.choices import ActionCategory
-from apps.accounts.serializers.login_serializer import UsernameOrEmailSerializer
-from apps.accounts.serializers.token_serializer import TokenSerializer
+from apps.contrib.api.exceptions.base import APIBadRequest
+from apps.accounts.api.account_responses import AccountsResponses
 from apps.accounts.services.auth_service import AuthService
 from apps.accounts.selectors.user_selector import UserSelector
+from apps.accounts.serializers.login_serializer import UsernameOrEmailSerializer
+from apps.accounts.serializers.token_serializer import TokenSerializer
 from apps.accounts.selectors.pending_action_selector import PendingActionSelector
-from apps.contrib.api.exceptions.base import APIBadRequest
 
 
 class EmailActionsViewSet(ViewSet):

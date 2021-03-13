@@ -3,10 +3,10 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from apps.accounts.serializers.login_serializer import LoginSerializer
-from apps.accounts.serializers.session_serializer import SessionSerializer, AccessTokenSerializer, GoogleTokenSerializer
 from apps.accounts.selectors.user_selector import UserSelector
 from apps.accounts.services.session_service import SessionService
+from apps.accounts.serializers.login_serializer import LoginSerializer
+from apps.accounts.serializers.session_serializer import SessionSerializer, AccessTokenSerializer, GoogleTokenSerializer
 
 
 class GoogleLoginView(APIView):
@@ -28,6 +28,8 @@ class GoogleLoginView(APIView):
 
 
 class FacebookLoginView(APIView):
+    """Process Login with Facebook Access Token."""
+
     def post(self, request):
         """Get session from facebook access token.
 
@@ -37,7 +39,7 @@ class FacebookLoginView(APIView):
         serializer.is_valid(raise_exception=True)
 
         user = SessionService.process_facebook_token(
-            serializer.validated_data['access_token']
+            serializer.validated_data['access_token'],
         )
 
         return Response(SessionSerializer(user).data)

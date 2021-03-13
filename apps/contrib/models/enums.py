@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import uuid
 from enum import Enum
-from django.db import models
 
 
 class BaseEnum(Enum):
@@ -18,4 +16,3 @@ class BaseEnum(Enum):
 
     def __str__(self):
         return str(self.value)
-

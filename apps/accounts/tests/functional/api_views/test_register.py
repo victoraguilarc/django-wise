@@ -6,12 +6,12 @@ from django.urls import reverse
 from constance.test import override_config
 from rest_framework import status
 
-from apps.accounts.api.account_responses import AccountsResponses
 from apps.accounts.api.error_codes import AccountsErrorCodes
-from apps.accounts.serializers.session_serializer import SessionSerializer
 from apps.accounts.tests.factories.user import generate_user_profile
+from apps.accounts.api.account_responses import AccountsResponses
 from apps.accounts.services.user_service import UserService
 from apps.contrib.utils.testing.unit_tests import mail_outbox, has_same_code, assert_validation_code
+from apps.accounts.serializers.session_serializer import SessionSerializer
 
 
 @pytest.mark.django_db

@@ -3,9 +3,9 @@
 import pytest
 
 from apps.accounts.api.error_codes import AccountsErrorCodes
+from apps.contrib.api.exceptions.base import APIBaseException
 from apps.accounts.tests.factories.pending_action import PendingActionFactory
 from apps.accounts.selectors.pending_action_selector import PendingActionSelector
-from apps.contrib.api.exceptions.base import APIBaseException
 
 
 @pytest.mark.django_db

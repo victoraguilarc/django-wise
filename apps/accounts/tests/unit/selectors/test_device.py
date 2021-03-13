@@ -2,11 +2,11 @@
 
 import pytest
 
-from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.accounts.models import PhoneDevice
+from apps.accounts.api.error_codes import AccountsErrorCodes
+from apps.contrib.api.exceptions.base import APIBaseException
 from apps.accounts.tests.factories.device import PhoneDeviceFactory
 from apps.accounts.selectors.device_selector import PhoneDeviceSelector
-from apps.contrib.api.exceptions.base import APIBaseException
 
 
 @pytest.mark.django_db

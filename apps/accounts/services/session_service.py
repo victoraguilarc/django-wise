@@ -9,9 +9,8 @@ from google.auth.transport import requests as google_requests
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
 
-from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.accounts.models import User
-
+from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.accounts.services.user_service import UserService
 
 
@@ -20,8 +19,6 @@ class SessionService(object):
 
     GOOGLE_ACCOUNTS_URL = 'https://accounts.google.com'
     FACEBOOK_USER_URL = 'https://graph.facebook.com/v5.0/me?fields=id,first_name,last_name,email'
-
-    # FACEBOOK_TOKEN_DEBUG_URL = 'https://graph.facebook.com/debug_token'
 
     @classmethod
     def process_google_token(cls, token: str) -> dict:
@@ -53,6 +50,7 @@ class SessionService(object):
 
     @classmethod
     def make_facebook_profile_url(cls, access_token):
+        """Composes the facebook usable url."""
         return '{0}&access_token={1}'.format(cls.FACEBOOK_USER_URL, access_token)
 
     @classmethod
@@ -70,7 +68,7 @@ class SessionService(object):
                 first_name=user_data.get('first_name'),
                 last_name=user_data.get('last_name'),
             )
-        except (ValueError, KeyError, TypeError):
+        except (ValueError, KeyError, TypeError):  # noqa: WPS329
             raise AccountsErrorCodes.INVALID_FACEBOOK_ACCESS_TOKEN
 
     @classmethod
@@ -84,6 +82,7 @@ class SessionService(object):
 
     @classmethod
     def validate_session(cls, user, plain_password):
+        """Validates is a user can be start a session."""
         if user is None or (user and not user.check_password(plain_password)):
             raise AccountsErrorCodes.INVALID_CREDENTIALS
 
@@ -93,6 +92,7 @@ class SessionService(object):
 
     @classmethod
     def drop_session(cls, refresh_token):
+        """Blacklists the user session."""
         try:
             RefreshToken(refresh_token).blacklist()
         except TokenError:

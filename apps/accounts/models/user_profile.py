@@ -8,7 +8,8 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class UserProfile(TimeStampedModelMixin):
-    """ This class is to customize some extra fields for users. e.g. roles"""
+    """This class is to customize some extra fields for users. e.g. roles."""
+
     user = models.OneToOneField(
         'accounts.User',
         on_delete=models.CASCADE,

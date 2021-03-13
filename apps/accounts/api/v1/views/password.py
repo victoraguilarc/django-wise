@@ -1,22 +1,19 @@
 # -*- coding: utf-8 -*-
 from rest_framework import status
-from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.permissions import AllowAny, IsAuthenticated
 
-from apps.accounts.api.account_responses import AccountsResponses
 from apps.contrib.api.viewsets import PermissionViewSet
 from apps.accounts.models.choices import ActionCategory
-from apps.accounts.serializers.password_serializer import (
-    PasswordSetSerializer,
-    PasswordResetSerializer,
-    PasswordUpdateSerializer,
-    PasswordResetConfirmSerializer
-)
+from apps.accounts.api.account_responses import AccountsResponses
 from apps.accounts.services.email_service import AuthEmailService
 from apps.accounts.selectors.user_selector import UserSelector
-from apps.accounts.serializers.user_profile_serializer import UserProfileSerializer
 from apps.accounts.services.password_service import PasswordService
+from apps.accounts.serializers.password_serializer import (
+    PasswordSetSerializer, PasswordResetSerializer, PasswordUpdateSerializer, PasswordResetConfirmSerializer,
+)
 from apps.accounts.selectors.pending_action_selector import PendingActionSelector
+from apps.accounts.serializers.user_profile_serializer import UserProfileSerializer
 
 from django.contrib.auth import update_session_auth_hash
 
@@ -60,7 +57,6 @@ class PasswordActionsViewSet(PermissionViewSet):
 
     def reset_password(self, request):
         """Request a password reset."""
-
         serializer = PasswordResetSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 

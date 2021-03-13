@@ -3,8 +3,8 @@
 from django.conf import settings
 from rest_framework import serializers
 
-from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.accounts.models import User
+from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.accounts.serializers.email_serializer import EmailSerializer
 
 

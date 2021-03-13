@@ -4,12 +4,13 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
-from apps.accounts.api.account_responses import AccountsResponses
-from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.accounts.models.choices import ActionCategory
 from apps.accounts.tests.conftest import TEST_PASSWORD
-from apps.contrib.utils.testing.unit_tests import mail_outbox, has_response_format, assert_validation_code, \
-    assert_error_code, assert_unauthorized
+from apps.accounts.api.error_codes import AccountsErrorCodes
+from apps.accounts.api.account_responses import AccountsResponses
+from apps.contrib.utils.testing.unit_tests import (
+    mail_outbox, assert_error_code, assert_unauthorized, has_response_format, assert_validation_code,
+)
 from apps.accounts.tests.factories.pending_action import PendingActionFactory
 
 

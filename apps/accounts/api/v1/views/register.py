@@ -5,10 +5,10 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from apps.accounts.api.account_responses import AccountsResponses
-from apps.accounts.serializers.session_serializer import SessionSerializer
-from apps.accounts.serializers.register_serializer import RegisterSerializer
 from apps.accounts.services.auth_service import AuthService
 from apps.accounts.services.user_service import UserService
+from apps.accounts.serializers.session_serializer import SessionSerializer
+from apps.accounts.serializers.register_serializer import RegisterSerializer
 
 
 class RegisterView(APIView):
@@ -26,4 +26,3 @@ class RegisterView(APIView):
         else:
             user = UserService.register_new_user(user_data=serializer.validated_data)
             return Response(SessionSerializer(user).data)
-

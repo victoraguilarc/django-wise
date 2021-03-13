@@ -2,8 +2,8 @@
 
 from django.core.exceptions import ValidationError
 
-from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.accounts.models import PhoneDevice
+from apps.accounts.api.error_codes import AccountsErrorCodes
 
 
 class PhoneDeviceSelector:

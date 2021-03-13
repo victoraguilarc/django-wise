@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from rest_framework import serializers
-from rest_framework.exceptions import ValidationError
 from rest_framework.serializers import Serializer
 
-from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.accounts.models import User
+from apps.accounts.api.error_codes import AccountsErrorCodes
+from apps.contrib.api.exceptions.base import SerializerFieldExceptionMixin
 from apps.accounts.serializers.login_serializer import UsernameOrEmailSerializer
 
 from django.utils.translation import ugettext_lazy as _
-
-from apps.contrib.api.exceptions.base import SerializerFieldExceptionMixin
 
 PASSWORD_MAX_LENGTH = User._meta.get_field('password').max_length  # noqa: WPS437
 
@@ -104,4 +102,3 @@ class PasswordResetConfirmSerializer(Serializer):
     DEFAULT_PASSWORD_LENGTH = 128
     token = serializers.CharField()
     password = serializers.CharField(max_length=DEFAULT_PASSWORD_LENGTH)
-

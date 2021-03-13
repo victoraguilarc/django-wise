@@ -20,8 +20,8 @@ class UserService:
 
         if 'photo' in changes:
             if changes.get('photo') is not None:
-                _photo = changes.get('photo')
-                user.photo.save(_photo.name, _photo)
+                photo = changes.get('photo')
+                user.photo.save(photo.name, photo)
         user.save()
         user.refresh_from_db()
 
@@ -44,12 +44,13 @@ class UserService:
 
     @classmethod
     def create_or_update_for_social_networks(cls, email, first_name, last_name):
+        """Creates or updates and user instance."""
         user, created = User.objects.update_or_create(
             email=email, defaults={
                 'first_name': first_name,
                 'last_name': last_name,
                 'is_active': True,
-            }
+            },
         )
         user.save()
 

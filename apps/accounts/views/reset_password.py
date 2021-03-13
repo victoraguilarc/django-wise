@@ -16,7 +16,7 @@ class ResetPasswordView(View):
         context = {}
         try:
             context['pending_action'] = PendingAction.objects.get(
-                token=token, category=ActionCategory.RESET_PASSWORD.value
+                token=token, category=ActionCategory.RESET_PASSWORD.value,
             )
         except PendingAction.DoesNotExist:
             context['pending_action'] = None
@@ -27,7 +27,7 @@ class ResetPasswordView(View):
         context = {}
         try:
             pending_action = PendingAction.objects.get(
-                token=token, category=ActionCategory.RESET_PASSWORD.value
+                token=token, category=ActionCategory.RESET_PASSWORD.value,
             )
 
             context['pending_action'] = pending_action

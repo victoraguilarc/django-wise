@@ -2,10 +2,10 @@
 
 import pytest
 
-from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.accounts.models import User
-from apps.accounts.selectors.user_selector import UserSelector
+from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.contrib.api.exceptions.base import APIBaseException
+from apps.accounts.selectors.user_selector import UserSelector
 
 
 @pytest.mark.django_db

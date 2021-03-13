@@ -8,11 +8,11 @@ from doubles import allow
 from google.oauth2 import id_token
 from rest_framework import status
 
-from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.accounts.models import User
+from apps.accounts.api.error_codes import AccountsErrorCodes
+from apps.contrib.api.exceptions.base import APIBaseException
 from apps.accounts.services.user_service import UserService
 from apps.accounts.services.session_service import SessionService
-from apps.contrib.api.exceptions.base import APIBaseException
 
 
 @pytest.mark.django_db

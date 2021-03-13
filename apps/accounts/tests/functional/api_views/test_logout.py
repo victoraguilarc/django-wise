@@ -5,12 +5,10 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from apps.accounts.api.account_responses import AccountsResponses
 from apps.accounts.api.error_codes import AccountsErrorCodes
+from apps.accounts.api.account_responses import AccountsResponses
 from apps.contrib.utils.testing.unit_tests import (
-    has_response_format,
-    assert_validation_code,
-    assert_error_code, assert_unauthorized
+    assert_error_code, assert_unauthorized, has_response_format, assert_validation_code,
 )
 
 

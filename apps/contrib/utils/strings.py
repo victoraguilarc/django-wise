@@ -41,8 +41,12 @@ def get_hostname(request=None):
         if 'HTTP_HOST' in request.META:
             hostname = request.META.get('HTTP_HOST')
 
-        has_settings = hasattr(settings, 'USE_HTTPS')
-        protocol = 'https' if has_settings and settings.USE_HTTPS else 'http'
+        try:
+            has_settings = settings.USE_HTTPS
+        except AttributeError:
+            has_settings = False
+
+        protocol = 'https' if has_settings else 'http'
         hostname = '{protocol}://{hostname}'.format(
             protocol=protocol,
             hostname=hostname,

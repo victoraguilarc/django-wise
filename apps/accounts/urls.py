@@ -23,5 +23,5 @@ urlpatterns = [
         'phone-verification/',
         view=PhoneVerificationView.as_view(),
         name='phone-verification',
-    )
+    ),
 ]

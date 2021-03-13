@@ -2,10 +2,8 @@
 
 
 def lower_dict_values(dict_obj):
+    """It applies lower to all values of a dict."""
     new_dict = {}
     for key, value in dict_obj.items():
-        _value = value
-        if isinstance(value, str):
-            _value = _value.lower()
-        new_dict[key] = _value
+        new_dict[key] = value.lower() if isinstance(value, str) else value
     return new_dict

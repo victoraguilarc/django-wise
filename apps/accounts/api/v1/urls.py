@@ -12,8 +12,8 @@ from apps.accounts.api.v1.views.phone_verification import PhoneVerification
 
 app_name = 'accounts'
 urlpatterns = [
-
     # >> Register
+
     path(
         'auth/register/',
         RegisterView.as_view(),

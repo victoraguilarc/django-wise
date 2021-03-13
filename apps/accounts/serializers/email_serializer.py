@@ -3,8 +3,8 @@
 from rest_framework import serializers
 from rest_framework.serializers import Serializer
 
-from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.accounts.models import User
+from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.contrib.api.exceptions.base import SerializerFieldExceptionMixin
 
 

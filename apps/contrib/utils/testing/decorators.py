@@ -3,10 +3,10 @@ from contextlib import contextmanager
 
 @contextmanager
 def temporarily(obj, **kwargs):
-    original_values = {k: getattr(obj, k) for k in kwargs}
-
-    for k, v in kwargs.items():
-        setattr(obj, k, v)
+    """Set attributes to a model, temorally."""
+    original_values = {key: getattr(obj, key) for key in kwargs}
+    for key1, value1 in kwargs.items():
+        setattr(obj, key1, value1)
 
     obj.save(update_fields=kwargs.keys())
 
@@ -14,7 +14,6 @@ def temporarily(obj, **kwargs):
         yield
 
     finally:
-        for k, v in original_values.items():
-            setattr(obj, k, v)
-
+        for key2, value2 in original_values.items():
+            setattr(obj, key2, value2)
         obj.save(update_fields=original_values.keys())

@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from rest_framework import serializers
-from apps.accounts.api.error_codes import AccountsErrorCodes
+
 from apps.accounts.models import User
+from apps.accounts.api.error_codes import AccountsErrorCodes
 from apps.contrib.api.exceptions.base import SerializerFieldExceptionMixin
 
 PASSWORD_MAX_LENGTH = User._meta.get_field('password').max_length  # noqa: WPS437

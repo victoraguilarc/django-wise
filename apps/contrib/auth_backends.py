@@ -5,13 +5,15 @@ from django.contrib.auth.backends import ModelBackend
 
 
 class SimpleEmailBackend(ModelBackend):
-    """"""
+    """It allow to sign-in with email/password in the admin page."""
+
     def authenticate(self, request, username=None, password=None, **kwargs):
-        UserModel = get_user_model()
+        """Overrides Backend base method."""
+        user_model = get_user_model()
 
         try:
-            user = UserModel.objects.get(email=username)
-        except UserModel.DoesNotExist:
+            user = user_model.objects.get(email=username)
+        except user_model.DoesNotExist:
             return None
         else:
             if user.check_password(password):

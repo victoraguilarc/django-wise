@@ -7,9 +7,9 @@ from rest_framework import status
 from rest_framework.exceptions import NotAuthenticated
 
 from apps.accounts.api.error_codes import AccountsErrorCodes
-from apps.accounts.serializers.session_serializer import SessionSerializer
+from apps.contrib.utils.testing.unit_tests import assert_error_code, assert_validation_code
 from apps.accounts.services.session_service import SessionService
-from apps.contrib.utils.testing.unit_tests import assert_validation_code, assert_error_code
+from apps.accounts.serializers.session_serializer import SessionSerializer
 
 
 @pytest.mark.django_db

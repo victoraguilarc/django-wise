@@ -8,7 +8,7 @@ from apps.accounts.models import User
 class Command(BaseCommand):
     """Creates a superuser."""
 
-    help = 'Touch a superuser!'
+    help = 'Touch a superuser!'  # noqa: WPS125
 
     def handle(self, *args, **options):
         """Creates a superuser admin."""

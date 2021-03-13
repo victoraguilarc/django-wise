@@ -1,10 +1,11 @@
-from rest_framework import status
-from rest_framework.response import Response
+# -*- coding: utf-8 -*-
 
 from django.utils.translation import ugettext_lazy as _
 
 
 class AccountsResponses(object):
+    """These are all common accoun responses."""
+
     #
     #  A U T H E N T I C A T I O N
     #
