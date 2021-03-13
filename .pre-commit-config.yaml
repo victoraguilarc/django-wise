@@ -1,10 +1,10 @@
 repos:
 - repo: local
   hooks:
-  - id: make-test
-    name: Running tests
-    entry: make test
-    language: system
+#  - id: make-test
+#    name: Running tests
+#    entry: make test
+#    language: system
   - id: make-isort
     name: Cleaning imports
     entry: make isort

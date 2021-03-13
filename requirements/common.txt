@@ -1,7 +1,7 @@
 
-wheel==0.34.2
+wheel==0.36.2
 pip==20.1.1
-django==3.1.4
+django==3.1.7
 
 #
 # C O N F I G U R A T I O N
@@ -24,29 +24,29 @@ django-model-utils==4.1.1  # https://github.com/jazzband/
 #
 #  O N E   T I M E   P A S S W O R D
 #
-phonenumbers==8.12.17  # https://github.com/daviddrysdale/python-phonenumbers
+phonenumbers==8.12.19  # https://github.com/daviddrysdale/python-phonenumbers
 django-phonenumber-field==5.0.0  # https://github.com/stefanfoulis/django-phonenumber-field
-pyotp==2.5.1  # https://github.com/pyauth/pyotp
-twilio==6.51.1
+pyotp==2.6.0  # https://github.com/pyauth/pyotp
+twilio==6.53.0
 
 
 #
 # A S Y N C  T A S K S
 #
-django-q==1.3.4  # https://django-q.readthedocs.io/en/latest/
+django-q==1.3.5  # https://django-q.readthedocs.io/en/latest/
 
 
 #
 # I M A G E S
 #
-Pillow==8.1.0  # https://github.com/python-pillow/Pillow
+Pillow==8.1.2  # https://github.com/python-pillow/Pillow
 
 #
 # C A C H I N G
 #
 redis==3.5.3  # https://github.com/antirez/redis
 django-redis==4.12.1  # https://github.com/niwinz/django-redis
-django-cache-memoize==0.1.7  # https://github.com/peterbe/
+django-cache-memoize==0.1.8  # https://github.com/peterbe/
 
 #
 # A S S E T S   M A N A G E M E N T
@@ -77,15 +77,15 @@ djangorestframework-api-key==2.0.0  # https://florimondmanca.github.io/djangores
 #
 # U T I L I T I E S
 #
-urllib3==1.26.2
-Werkzeug==1.0.1  # https://github.com/pallets/werkzeug
+urllib3==1.26.3
+Werkzeug==2.0.0rc2  # https://github.com/pallets/werkzeug
 python-slugify==4.0.1  # https://github.com/un33k/python-slugify
 bcrypt==3.2.0  # https://github.com/pyca/bcrypt
 django-split-settings==1.0.1  # https://github.com/sobolevn/KristianOellegaard/django-health-check
-boto3==1.16.59  # https://github.com/boto/boto3
+boto3==1.17.27  # https://github.com/boto/boto3
 oscrypto==1.2.1  # https://github.com/wbond/oscrypto
 
 #
 # T I M E Z O N E S
 #
-pytz==2020.5  # https://pythonhosted.org/pytz/
+pytz==2021.1  # https://pythonhosted.org/pytz/

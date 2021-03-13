@@ -6,8 +6,6 @@ COMPOSE := docker-compose -f docker-compose.yml -f compose/docker-compose.dev.ym
 COMPOSE_TEST := $(COMPOSE) -f compose/docker-compose.test.yml
 
 ARG=
-QA_REPO=443146772614.dkr.ecr.us-east-1.amazonaws.com/ops-bases-qa-staging:latest
-PROD_REPO=852516393594.dkr.ecr.us-east-1.amazonaws.com/ops-bases-qa
 
 help:
 	@echo
@@ -17,38 +15,38 @@ help:
 	@echo ">  R U N N I N G"
 	@echo "  - build			            Build the containers for development"
 	@echo "  - up			                Run & Up development server"
-	@echo "  - superuser                    Create a super user in the database"
+	@echo "  - superuser              Create a super user in the database"
 	@echo "  - clean			            Stop & Destroy project containers"
-	@echo "  - stop			                Stop compose runing"
-	@echo "  - restart			            Restart compose running"
-	@echo "  - clean_volumes                Destroy compose projet volumes"
-	@echo "  - show_urls                	Show available routes"
+	@echo "  - stop			              Stop compose runing"
+	@echo "  - restart			          Restart compose running"
+	@echo "  - clean_volumes          Destroy compose projet volumes"
+	@echo "  - show_urls             	Show available routes"
 
 	@echo ----------------------------------------------------------------------
 	@echo ">  D E B U G I N G"
 	@echo "  - debug			            Run & Up development server with ports for debuging"
-	@echo "  - printenv			            Show all environmeent variables"
-	@echo "  - settings			            Show computed django settings"
-	@echo "  - console			            Open a Django shell console"
-	@echo "  - dbshell			            Open a Database shell console"
+	@echo "  - printenv			          Show all environmeent variables"
+	@echo "  - settings			          Show computed django settings"
+	@echo "  - console			          Open a Django shell console"
+	@echo "  - dbshell			          Open a Database shell console"
 
 	@echo ----------------------------------------------------------------------
 	@echo ">  D A T A B A S E"
 	@echo "  - fixtures			            Load testing data"
 	@echo "  - dumpdata			            Generate testing data"
 	@echo "  - migrate			            Apply unapplied migrations"
-	@echo "  - migrations ARG={app}         Create deetected migrations automatically"
+	@echo "  - migrations ARG={app}     Create deetected migrations automatically"
 	@echo "  - squashmigrations			    Squash existent migrations"
 	@echo "  - flushdb			            Drop database registries"
 
 	@echo ----------------------------------------------------------------------
 	@echo ">  T E S T I N G"
 	@echo "  - tests			            Run tests"
-	@echo "  - selenium			            Open selenium session to see them with VNC"
+	@echo "  - selenium			          Open selenium session to see them with VNC"
 	@echo "  - pytest			            Run tests with pytest engine"
 	@echo "  - clean_tests			      Running tests with pytest cleaning cache"
 	@echo "  - coverage_tests			    Generate the coverage"
-	@echo "  - coverage_report			    Generate coverage html report"
+	@echo "  - coverage_report			  Generate coverage html report"
 	@echo ----------------------------------------------------------------------
 	@echo ">  L I N T I N G"
 	@echo "  - lint			            Build the containers for development"

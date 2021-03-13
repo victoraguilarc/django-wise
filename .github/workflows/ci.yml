@@ -62,3 +62,6 @@ jobs:
         POSTGRES_USER: 'postgres'
         POSTGRES_PASSWORD: 'postgres'
         POSTGRES_PORT: 5432
+        TWILIO_ACCOUNT_SID: 'twilio_account_sid'
+        TWILIO_AUTH_TOKEN: 'twilio_auth_token'
+        TWILIO_PHONE_NUMBER: 'twilio_phone_number'
