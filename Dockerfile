@@ -1,4 +1,4 @@
-FROM python:3.7-slim-buster as image_base
+FROM python:3.8-slim-buster as image_base
 
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -15,6 +15,9 @@ RUN apt-get update \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
 
+
+RUN pip install --upgrade pip
+
 COPY ./requirements /requirements
 RUN pip install --no-cache-dir -r /requirements/common.txt
 
@@ -26,6 +29,7 @@ RUN sed -i 's/\r//' /post-build
 RUN chmod +x /post-build
 
 EXPOSE 8000
+
 WORKDIR /app
 
 #
@@ -44,20 +48,6 @@ RUN chmod +x /entrypoint
 COPY compose/start-dev /start
 RUN sed -i 's/\r//' /start
 RUN chmod +x /start
-
-# C E L E R Y
-COPY compose/celery/dev/start-celeryworker /start-celeryworker
-RUN sed -i 's/\r$//g' /start-celeryworker
-RUN chmod +x /start-celeryworker
-
-COPY compose/celery/dev/start-celerybeat /start-celerybeat
-RUN sed -i 's/\r$//g' /start-celerybeat
-RUN chmod +x /start-celerybeat
-
-COPY compose/celery/dev/start-flower /start-flower
-RUN sed -i 's/\r$//g' /start-flower
-RUN chmod +x /start-flower
-
 
 ENTRYPOINT ["/entrypoint"]
 

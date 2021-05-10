@@ -11,8 +11,8 @@ services:
       - redis
 
   postgres:
-    image: postgres:11
+    image: postgres:12
 
   redis:
-    image: redis:5
+    image: redis:6
 

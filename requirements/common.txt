@@ -1,7 +1,7 @@
 
 wheel==0.36.2
 pip==20.1.1
-django==3.1.7
+django==3.2.2
 
 #
 # C O N F I G U R A T I O N
@@ -25,9 +25,9 @@ django-model-utils==4.1.1  # https://github.com/jazzband/
 #  O N E   T I M E   P A S S W O R D
 #
 phonenumbers==8.12.19  # https://github.com/daviddrysdale/python-phonenumbers
-django-phonenumber-field==5.0.0  # https://github.com/stefanfoulis/django-phonenumber-field
+django-phonenumber-field==5.1.0  # https://github.com/stefanfoulis/django-phonenumber-field
 pyotp==2.6.0  # https://github.com/pyauth/pyotp
-twilio==6.53.0
+twilio==6.58.0
 
 
 #
@@ -46,13 +46,13 @@ Pillow==8.1.2  # https://github.com/python-pillow/Pillow
 #
 redis==3.5.3  # https://github.com/antirez/redis
 django-redis==4.12.1  # https://github.com/niwinz/django-redis
-django-cache-memoize==0.1.8  # https://github.com/peterbe/
+django-cache-memoize==0.1.9  # https://github.com/peterbe/
 
 #
 # A S S E T S   M A N A G E M E N T
 #
 rcssmin==1.0.6
-django-compressor==2.4  # https://github.com/django-compressor/
+django-compressor==2.4.1  # https://github.com/django-compressor/
 django-imagekit==4.0.2  # https://github.com/matthewwithanm/
 
 #
@@ -65,11 +65,11 @@ django-constance==2.8.0  # https://github.com/jazzband/
 #
 # R E S T   A P I S
 #
-djangorestframework==3.12.2  # https://github.com/encode/
+djangorestframework==3.12.4  # https://github.com/encode/
 django-cors-headers==3.7.0  # https://github.com/ottoyiu/
 djangorestframework-camel-case==1.2.0  # https://github.com/vbabiy/djangorestframework-camel-case
 
-google-auth==1.24.0  # https://github.com/googleapis/google-auth-library-python
+google-auth==1.30.0  # https://github.com/googleapis/google-auth-library-python
 CacheControl==0.12.6  # https://github.com/ionrock/cachecontrol
 djangorestframework_simplejwt==4.6.0  # https://github.com/davesque/django-rest-framework-simplejwt
 djangorestframework-api-key==2.0.0  # https://florimondmanca.github.io/djangorestframework-api-key/
@@ -77,12 +77,12 @@ djangorestframework-api-key==2.0.0  # https://florimondmanca.github.io/djangores
 #
 # U T I L I T I E S
 #
-urllib3==1.26.3
+urllib3==1.26.4
 Werkzeug==2.0.0rc2  # https://github.com/pallets/werkzeug
-python-slugify==4.0.1  # https://github.com/un33k/python-slugify
+python-slugify==5.0.2  # https://github.com/un33k/python-slugify
 bcrypt==3.2.0  # https://github.com/pyca/bcrypt
 django-split-settings==1.0.1  # https://github.com/sobolevn/KristianOellegaard/django-health-check
-boto3==1.17.27  # https://github.com/boto/boto3
+boto3==1.17.69  # https://github.com/boto/boto3
 oscrypto==1.2.1  # https://github.com/wbond/oscrypto
 
 #

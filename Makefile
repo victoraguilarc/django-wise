@@ -130,7 +130,7 @@ restart: stop up
 
 clean_volumes:
 	@echo "Cleaning volumes ..."
-	docker volume ls -q | grep sawi | xargs docker volume rm
+	docker volume ls -q | grep django-wise | xargs docker volume rm
 	docker images | grep "^<none>" | awk '{print $3}' | xargs docker rmi
 
 show_urls:

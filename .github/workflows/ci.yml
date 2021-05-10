@@ -6,7 +6,7 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     container:
-      image: python:3.7-slim-buster
+      image: python:3.8-slim-buster
       volumes:
       - /cache/pip:/github/home/.cache/pip
     services:
@@ -18,7 +18,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
       postgres:
-        image: postgis/postgis:11-3.0
+        image: circleci/postgres:12-ram
         env:
           POSTGRES_HOST: 'postgres'
           POSTGRES_DB: 'postgres'

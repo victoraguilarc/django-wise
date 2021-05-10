@@ -6,3 +6,5 @@ services:
     env_file:
       - .envs/test/django
       - .envs/dev/postgres
+  postgres:
+    image: circleci/postgres:12-ram

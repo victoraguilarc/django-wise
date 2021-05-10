@@ -225,6 +225,8 @@ REFERRER_POLICY = 'no-referrer'
 # Timeouts
 EMAIL_TIMEOUT = 5
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 #
 # PLATFORM SETTINGS
 # ------------------------------------------------------------------------------
