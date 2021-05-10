@@ -5,7 +5,7 @@ volumes:
 
 services:
   django:
-    image: xiberty/sawi-api:latest
+    image: victoraguilarc/wise-api:latest
     depends_on:
       - postgres
       - redis

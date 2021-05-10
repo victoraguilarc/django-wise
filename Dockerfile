@@ -46,7 +46,6 @@ RUN sed -i 's/\r//' /start
 RUN chmod +x /start
 
 # C E L E R Y
-
 COPY compose/celery/dev/start-celeryworker /start-celeryworker
 RUN sed -i 's/\r$//g' /start-celeryworker
 RUN chmod +x /start-celeryworker
