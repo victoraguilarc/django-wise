@@ -150,9 +150,6 @@ test:
 	@echo "Running tests with pytest cleaning cache..."
 	$(COMPOSE_TEST) run --rm django bash -c "DJANGO_ENV=testing pytest --pyargs $(ARG)"
 
-tests:
-	$(COMPOSE_TEST) run --rm django pytest -n auto --pyargs $(ARG)
-
 clean_tests:
 	$(COMPOSE_TEST) run --rm django pytest -n auto --pyargs --cache-clear
 

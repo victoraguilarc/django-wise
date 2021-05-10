@@ -1,6 +1,6 @@
 ## Wise API Boilerplate
 
-This is an opinionated boilerplate to start django projects
+This is an opinionated Django boilerplate to start Rest API projects
 
 ![styleguide](https://img.shields.io/badge/styleguide-flake8-blue)
 ![Coverage](web/badges/coverage.svg) 
@@ -9,9 +9,9 @@ This is an opinionated boilerplate to start django projects
 
   * [Django](https://www.djangoproject.com/) as main web Framework
   * [Django Rest Framework](http://www.django-rest-framework.org/) as API development tooling
-  * [Postgres](http://www.django-rest-framework.org/) for SQL Database
-  * [Django Q](http://www.django-rest-framework.org/) for scheduled and async tasks.
-  * [Docker/docke-compose](http://www.django-rest-framework.org/) for development and standalone deployments.
+  * [Postgres](https://www.postgresql.org/) for SQL Database
+  * [Django Q](https://django-q.readthedocs.io/en/latest/) for scheduled and async tasks.
+  * [Docker/docke-compose](https://docs.docker.com/compose/) for development and standalone deployments.
 
 
 ### Features
@@ -20,6 +20,7 @@ This is an opinionated boilerplate to start django projects
   - [x] Accounts (Users/Devices)
   - [x] Social Networks Support (Facebook/Google).
   - [ ] API Documentation
+  - [ ] Deployment Tools
 
 ## Getting started
 
@@ -56,9 +57,7 @@ Recurring commands:
 ### Pre commit actions
   * `make isort` Fix posible import issues
   * `make lint` Check code quality based on PEP-8 styleguidees
-  * `make tests` Run the tests with unittest
-  * `make pytest` Run the tests with pytest
-
+  * `make test` Run the tests with pytest
 
 ## Transactional Frontend
 This project has a transactional minimum frontend views, it is to process
@@ -74,11 +73,9 @@ following commands:
   * `npm install` Install nodejs dependencies
   * `gulp` generate `css`, `js`  frontend assets.
 
-## Tools
-  - Postman Collection
-  - Swagger API docs
+## To-Dos
+  - [ ] Postman Initial Collection
+  - [ ] Swagger API docs
+  - [ ] Deployment Guides [[`wise-cli`](https://github.com/victoraguilarc/wise-cli), [`wise-cdk`](https://github.com/victoraguilarc/wise-cdk)]
+  - [ ] Use black as style guide
 
-## Deployment Guides
-  - Manually Deployment
-  - Using `wise-cli`
-  - Using `wise-cdk`
